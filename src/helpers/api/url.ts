@@ -7,6 +7,7 @@ type API = {
     TECHNICAL_SKILL: string
     LOGIN_URL: string
     REGISTER_URL: string
+    EDUCATION_URL: string
 }
 
 export const apiUrls:API = {
@@ -17,5 +18,6 @@ export const apiUrls:API = {
     WORK_HISTORY: 'user/work-history',
     TECHNICAL_SKILL: 'user/skill',
     LOGIN_URL: 'auth/login',
-    REGISTER_URL: 'auth/register'
+    REGISTER_URL: 'auth/register',
+    EDUCATION_URL: 'user/education'
 }

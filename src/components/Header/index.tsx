@@ -1,12 +1,12 @@
 import React from 'react';
 import { FiMenu } from "react-icons/fi";
-import { useNavContext } from '../../context/navContext';
+import { useDashboardContext } from '../../context/dashboardContext';
 import Logo from '../../public/svgs/Logo';
 
 
 const Header = () => {
 
-    const { toggleOpenNav } = useNavContext();
+    const { toggleOpenNav } = useDashboardContext();
 
     const handleCloseNav = () => toggleOpenNav();
     

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { removeAuthUser } from "../helpers/api";
 import { mutationApi } from "../helpers/api/mutationApi";
@@ -9,6 +9,8 @@ type AuthProps = {
     register: Function;
     login: Function;
     logout: Function;
+    setUserName: Function
+    userName: object
 };
 
 type Props = {
@@ -19,6 +21,8 @@ const defaultState = {
     register: () => { },
     login: () => { },
     logout: () => { },
+    setUserName: () => { },
+    userName: {}
 };
 
 const { REACT_APP_BACKEND_URL } = process.env;
@@ -28,6 +32,8 @@ export const authContext = React.createContext<AuthProps>(defaultState);
 export const useAuth = () => React.useContext(authContext);
 
 export const AuthProvider = ({ children }: Props) => {
+
+    const [userName, setUserName] = useState({});
 
     const register = (
         payload: string[] | {},
@@ -56,7 +62,9 @@ export const AuthProvider = ({ children }: Props) => {
     const values = {
         register,
         login,
-        logout
+        logout,
+        setUserName,
+        userName
     }
 
     return (

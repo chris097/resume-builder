@@ -7,6 +7,7 @@ import { workHistorySchema } from '../validator';
 import { fetchWorkHistory } from '../service';
 import toast from 'react-hot-toast';
 import { ROUTE_URL } from '../routes/url';
+import Button from '../components/Button';
 // import { CONSTANT_TEXT } from '../constant';
 // import { apiUrls } from '../helpers/api/url';
 // import useQueryApi from '../helpers/useQuery';
@@ -119,7 +120,14 @@ const WorkHistory = () => {
             </div>
             <div className='flex justify-between mt-16 font-light'>
               <button type='button' className='border w-32 h-10'>Back</button>
-                <button type='submit' className='bg-red-500 hover:bg-red-700 text-white w-32 h-10'>{loading ? "loading..." : `Save & Next`}</button>
+              <Button
+                height='h-14'
+                width='w-32'
+                bg='bg-red-500'
+                color="text-white"
+                type='submit'
+                name={loading ? "loading...": "Save & Next"}
+              />
             </div>
           </form>
         </div>

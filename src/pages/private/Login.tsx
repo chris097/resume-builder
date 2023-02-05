@@ -15,7 +15,7 @@ import { setAuthUser } from '../../helpers/api';
 const Login = () => {
 
     const [loading, setLoading] = useState<boolean>(false);
-    const { login } = useAuth();
+    const { login, setUserName } = useAuth();
 
     const navigate = useNavigate();
 
@@ -39,6 +39,7 @@ const Login = () => {
                     navigate(ROUTE_URL.RESUME_URL);
                     setAuthUser(responses.data.token)
                     console.log(responses)
+                    setUserName(responses.data.fullName)
                     setLoading(false);
                 } else {
                     toast.error("Invalid credentials")

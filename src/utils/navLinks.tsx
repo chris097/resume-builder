@@ -33,9 +33,4 @@ export const navLinks: NavLinkProps[] = [
         icon: <FaGraduationCap size="16px" />,
         to: ROUTE_URL.EDUCATION_URL
     },
-    {
-        name: "Certification & Hobbies",
-        icon: <BsFillAwardFill size="16px" />,
-        to: ROUTE_URL.PROFESSION_SUMMARY_URL
-    },
 ];

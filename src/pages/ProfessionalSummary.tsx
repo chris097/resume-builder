@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../components/Header';
+import { useState } from 'react'
 import { MdOutlineKeyboardBackspace, MdDelete } from 'react-icons/md';
 import { BsPlusLg } from 'react-icons/bs';
 import Input from '../components/input';
 import { useNavigate } from 'react-router-dom';
-import { generateCharacters } from '../utils';
-import AdditionalField from '../components/AdditionalField';
 import { useFormik } from 'formik';
 import { userinfoSchema } from '../validator';
 import { useQueryClient } from '@tanstack/react-query';
@@ -15,12 +12,17 @@ import { ROUTE_URL } from '../routes/url';
 import useQueryApi from '../helpers/useQuery';
 import { CONSTANT_TEXT } from '../constant';
 import { apiUrls } from '../helpers/api/url';
+import Button from '../components/Button';
+import { useAuth } from '../context/authContext';
 
 const ProfessionalSummary = () => {
 
   //state
   const [toggleAdditioanlLink, setToggleAdditionalLink] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  //context
+  const { userName } = useAuth()
+  console.log(userName)
   // route
   const navigate = useNavigate();
 
@@ -252,8 +254,22 @@ const ProfessionalSummary = () => {
             </div>
             <div className='flex justify-between mt-16 font-light'>
               <button type='button' className='border w-32 h-10'>Back</button>
-              {disableUser ? <button type='submit' className='bg-red-500 hover:bg-red-700 text-white w-32 h-10'>{loading ? "Loading..." : `Save & Next`}</button>
-                : <button type='button' disabled className='bg-red-500 hover:bg-red-700 text-white w-32 h-10'>{`Update & Next`}</button>}
+              {disableUser ? <Button
+                width='w-32'
+                height='h-10'
+                bg='bg-red-500'
+                color='text-white'
+                type='submit'
+                name={loading ? "loading..." : "Sava & Next"}
+              /> :
+                <Button
+                width='w-32'
+                height='h-10'
+                bg='bg-red-500'
+                color='text-white'
+                name={"Update"}
+              />
+             }
             </div>
           </form>
         </div>

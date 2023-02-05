@@ -2,7 +2,7 @@ import {Suspense} from 'react';
 import { Toaster } from 'react-hot-toast';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import routes from './routes';
-import { NavProvider } from './context/navContext';
+import { NavProvider } from './context/dashboardContext';
 import './App.css';
 import { AuthProvider } from './context/authContext';
 

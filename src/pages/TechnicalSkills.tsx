@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 
 const TechnicalSkills = () => {
 
-  const [stack, setStack] = useState<string[]>([]);
+  const [stack, setStack] = useState<object[]>([{ name: 'Javascript'}]);
   const [loading, setLoading] = useState<Boolean>(false);
 
   const navigate = useNavigate();
@@ -20,10 +20,12 @@ const TechnicalSkills = () => {
       name: ""
     },
     onSubmit: value => {
-      setStack([...stack, value.name])
+      setStack([...stack, {name: value.name}])
       value.name =''
     }
   });
+
+  console.log(stack)
 
   const handleDelete = (name: string) => {
     const filterStack = stack.filter((item: any) => item !== name)
@@ -72,7 +74,7 @@ const TechnicalSkills = () => {
         <div className='mt-8 border h-auto py-3 px-6 flex flex-wrap gap-5'>
           {stack.map((name:any, i:number) => (
                 <div key={i} className='border p-3 rounded-full w-44 h-12 flex justify-between items-center'>
-              <span className='text-secondarygray text-sm'>{name}</span>
+              <span className='text-secondarygray text-sm'>{name.name}</span>
               <span onClick={() =>handleDelete(name)} className='cursor-pointer hover:text-red-500'><GrFormClose color='#404553' size={18} /></span>
           </div>   
                  ))}

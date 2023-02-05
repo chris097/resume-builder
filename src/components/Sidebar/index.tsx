@@ -1,12 +1,12 @@
 import Logo from '../../public/svgs/Logo';
 import {IoCloseOutline} from 'react-icons/io5'
-import { useNavContext } from '../../context/navContext';
+import { useDashboardContext } from '../../context/dashboardContext';
 import { navLinks } from '../../utils/navLinks';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 
-    const { toggleCloseNav } = useNavContext();
+    const { toggleCloseNav } = useDashboardContext();
     
     const handleCloseNav = () => toggleCloseNav();
 

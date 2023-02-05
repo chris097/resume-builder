@@ -36,3 +36,12 @@ export const registerSchema = yup.object().shape({
     email: yup.string().email().trim().required("email is required"),
     password: yup.string().required('password is required.')
 });
+
+export const educationSchema = yup.object().shape({
+    school_name: yup.string().required("school name is required."),
+    school_location: yup.string().required('school location is required.'),
+    degree: yup.string().required('degree is required'),
+    field: yup.string().required('field is required.'),
+    start_date: yup.string().required('start date is required'),
+    end_date: yup.string().required('end date is required')
+})
