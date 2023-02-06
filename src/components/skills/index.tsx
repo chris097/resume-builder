@@ -3,16 +3,17 @@ import { CONSTANT_TEXT } from '../../constant';
 import { apiUrls } from '../../helpers/api/url';
 import useQueryApi from '../../helpers/useQuery';
 import { GrStatusGood } from 'react-icons/gr';
+import { SkeletonWorkHistory } from '../skeletonLoader';
 // import Range from '../../public/svgs/range'
 
 const Skill = () => {
-  const { data } = useQueryApi([CONSTANT_TEXT.GET_TECHNICAL_SKILL], apiUrls.TECHNICAL_SKILL);
+  const { data, isLoading } = useQueryApi([CONSTANT_TEXT.GET_TECHNICAL_SKILL], apiUrls.TECHNICAL_SKILL);
 
   return (
     <div className='px-6 py-7 bg-white w-full rounded-md h-auto'>
       <div className='font-medium text-xl mb-5'>Technical Skills</div>
-      <div className='grid grid-cols-4'>
-        {data?.skills[0]?.name?.map((name:any, index:number) => (
+      <div className='grid grid-cols-3'>
+        {isLoading ? <SkeletonWorkHistory /> : data?.skills[0]?.name?.map((name:any, index:number) => (
              <div key={index} className='items-center flex mb-2'>
             <div className='mr-2'>
               <GrStatusGood size={25} color="#D61355" />

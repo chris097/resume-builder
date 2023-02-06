@@ -69,7 +69,8 @@ const Login = () => {
                         placeholder: "Christian@gmail.com",
                         ...formik.getFieldProps('email')
                   }}
-              />
+                  />
+                  {formik.touched.email && formik.errors.email ? (<span className='text-xs text-red-500'>{formik.errors.email}</span>) : null}
               </div>
               <div className='mt-3'>
                   <Input
@@ -79,7 +80,8 @@ const Login = () => {
                         placeholder: "******",
                         ...formik.getFieldProps('password')
                   }}
-              />
+                  />
+                  {formik.touched.password && formik.errors.password ? (<span className='text-xs text-red-500'>{formik.errors.password}</span>) : null}
               </div>
               <div className='text-red-400 text-sm flex justify-end mt-2 cursor-pointer'>Forgotten password?</div>
               <div className='mt-5'>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Header from '../components/Header';
 import { MdOutlineKeyboardBackspace, MdDelete } from 'react-icons/md';
+import { useQueryClient } from '@tanstack/react-query';
 import { BsPlusLg } from 'react-icons/bs';
 import Input from '../components/input';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +10,8 @@ import { useFormik } from 'formik';
 import { educationSchema } from '../validator';
 import { createEducation } from '../service';
 import toast from 'react-hot-toast';
+import { ROUTE_URL } from '../routes/url';
+import { CONSTANT_TEXT } from '../constant';
 
 type valueProps = {
     school_name: string
@@ -21,7 +24,9 @@ type valueProps = {
 
 const Education = () => {
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState<boolean>(false);
+
+    const queryClient = useQueryClient();
 
     const navigate = useNavigate();
 
@@ -42,8 +47,10 @@ const Education = () => {
             return createEducation(values,
                 (res: any) => {
                     if (res.status === 201) {
-                        toast.success(res.message)
-                        setLoading(false)
+                        toast.success(res.message);
+                        setLoading(false);
+                        navigate(ROUTE_URL.RESUME_URL)
+                        queryClient.invalidateQueries([CONSTANT_TEXT.GET_WORK_HISTORY, {type: 'done'}])
                     } else {
                         toast.error(res.message)
                         setLoading(false)
@@ -144,7 +151,7 @@ const Education = () => {
                             <Button
                                 bg='bg-red-500'
                                 width='w-32'
-                                height='h-14'
+                                height='h-10'
                                 color='text-white'
                                 type='submit'
                                 name={loading ? "loading..." : "Save & Next"}

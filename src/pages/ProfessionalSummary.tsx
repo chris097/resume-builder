@@ -53,6 +53,7 @@ const ProfessionalSummary = () => {
     },
     validationSchema: userinfoSchema,
     onSubmit: values => {
+      console.log(values)
       setLoading(true)
       return fetchProfessionalSummary(values,
         (res: any) => {

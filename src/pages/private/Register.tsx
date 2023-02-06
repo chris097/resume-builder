@@ -70,6 +70,7 @@ const Register = () => {
                             ...formik.getFieldProps("fullName")
                         }}
                     />
+                    {formik.touched.fullName && formik.errors.fullName ? (<span className='text-xs text-red-500'>{formik.errors.fullName}</span>) : null}
                 </div>
                 <div className='mt-3'>
                     <Input
@@ -80,6 +81,7 @@ const Register = () => {
                             ...formik.getFieldProps("email")
                         }}
                     />
+                    {formik.touched.email && formik.errors.email ? (<span className='text-xs text-red-500'>{formik.errors.email}</span>) : null}
                 </div>
                 <div className='mt-3'>
                     <Input
@@ -90,6 +92,7 @@ const Register = () => {
                             ...formik.getFieldProps('password')
                         }}
                     />
+                    {formik.touched.password && formik.errors.password ? (<span className='text-xs text-red-500'>{formik.errors.password}</span>) : null}
                 </div>
                 <div className='text-red-400 text-sm flex justify-end mt-2 cursor-pointer'>Forgotten password?</div>
                 <div className='mt-5'>

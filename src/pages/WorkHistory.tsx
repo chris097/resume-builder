@@ -121,7 +121,7 @@ const WorkHistory = () => {
             <div className='flex justify-between mt-16 font-light'>
               <button type='button' className='border w-32 h-10'>Back</button>
               <Button
-                height='h-14'
+                height='h-10'
                 width='w-32'
                 bg='bg-red-500'
                 color="text-white"

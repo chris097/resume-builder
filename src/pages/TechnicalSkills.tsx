@@ -7,6 +7,7 @@ import Input from '../components/input';
 import { useFormik } from 'formik';
 import { createTechnicalSkill } from '../service';
 import toast from 'react-hot-toast';
+import { ROUTE_URL } from '../routes/url';
 
 const TechnicalSkills = () => {
 
@@ -38,6 +39,7 @@ const TechnicalSkills = () => {
     await createTechnicalSkill({ name: stack }, (res: any) => {
       if (res.status === 201) {
         toast.success(res.message)
+        navigate(ROUTE_URL.EDUCATION_URL)
         setLoading(false)
         setStack([])
       } else {
@@ -80,7 +82,7 @@ const TechnicalSkills = () => {
                  ))}
         </div>
         <div className='flex justify-end mt-8'>
-          <button onClick={handleSubmit} className="h-14 bg-red-500 text-white w-44">{loading ? "loading..." : "Save"}</button>
+          <button onClick={handleSubmit} className="h-10 bg-red-500 text-white w-44">{loading ? "loading..." : "Save & Next"}</button>
         </div>
     </div>
     </div>
