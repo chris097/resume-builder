@@ -63,6 +63,7 @@ const Home = () => {
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
               Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
             </p>
+            <Link to={ROUTE_URL.LOGIN_URL}>
             <HomeButton
               bg='bg-corered'
               color='text-white'
@@ -70,13 +71,14 @@ const Home = () => {
               width='w-44'
               name='Get Started'
             />
+            </Link>
           </div>
           <div className='font-opensans flex-1 space-y-6 ml-5'>
             <TopResume />
             <BottomResume />
           </div>
         </div>
-        <div className='mt-24'>
+        {/* <div className='mt-24'>
           <h1 className='font-opensans text-7xl font-semibold'>How it works?</h1>
           <div className='flex justify-between mt-24 gap-10'>
             <div className='flex-1 py-3'>
@@ -121,7 +123,7 @@ const Home = () => {
             <div className='flex-1 border'>Text</div>
           </div>
         </div>
-        <div>More</div>
+        <div>More</div> */}
       </div>
     </section>
   )
