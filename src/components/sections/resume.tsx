@@ -33,14 +33,14 @@ const ResumeSection: React.FC<Props> = (props) => {
           </div>
           <div className='relative'>
             <div className='fixed bottom-14'>
-               <button onClick={props.handlePrint} type='button' className='text-sm mt-4 font-light hover:text-red-500 cursor-pointer flex space-x-2'>
+               {/* <button onClick={props.handlePrint} type='button' className='text-sm mt-4 font-light hover:text-red-500 cursor-pointer flex space-x-2'>
               <div><FaDownload size="16px"  /></div>
               <div>Download</div>
             </button>
                <button onClick={props.handlePrint} type='button' className='text-sm mt-4 font-light hover:text-red-500 cursor-pointer flex space-x-2'>
               <div><AiTwotoneSetting size="16px"  /></div>
               <div>Settings</div>
-            </button>
+            </button> */}
                <button onClick={() => logout(navigate)} type='button' className='text-sm mt-4 font-light hover:text-red-500 cursor-pointer flex space-x-2'>
               <div><FiLogOut size="16px"  /></div>
               <div>Logout</div>
