@@ -59,7 +59,7 @@ const Login = () => {
               height='52'
           />
           <h1 className='mt-3'>Add some text here</h1>
-          <form onSubmit={formik.handleSubmit} className='w-1/3 border h-auto py-6 bg-white rounded mt-6 px-6'>
+          <form onSubmit={formik.handleSubmit} className='md:w-1/3 w-[90%] border h-auto py-6 bg-white rounded mt-6 px-6'>
               <p className='text-secondarygray'>Please fill details:</p>
               <div className='mt-6'>
                   <Input

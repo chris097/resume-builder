@@ -26,7 +26,7 @@ const Home = () => {
   return (
     <section>
       <div className='bg-white h-24 fixed w-full left-0 top-0 z-50 border-b'>
-        <div className='flex justify-between h-full max-w-7xl mx-auto items-center'>
+        <div className='flex justify-between h-full w-[90%] mx-auto items-center'>
           <div>
             <Logo width='122' height='42' />
           </div>
@@ -41,9 +41,9 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      <div className='mt-24 max-w-7xl mx-auto'>
-        <div className='flex justify-between gap-20 items-center h-[90vh]'>
-          <div className='flex-1 w-1/2'>
+      <div className='mt-24 w-[90%] mx-auto'>
+        <div className='md:flex block justify-between gap-20 items-center md:h-[90vh] h-auto'>
+          <div className='flex-1 md:w-1/2 w-full'>
             <h1 className='text-7xl font-bold font-opensans tracking-tighter leading-0'>
               <div className={`${nameVariant(currentName)} tracking-tighter text-8xl`}>
                 <TypeAnimation
@@ -73,7 +73,7 @@ const Home = () => {
             />
             </Link>
           </div>
-          <div className='font-opensans flex-1 space-y-6 ml-5'>
+          <div className='font-opensans flex-1 space-y-6 md:ml-5 md:mt-0 mt-10'>
             <TopResume />
             <BottomResume />
           </div>

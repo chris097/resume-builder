@@ -5,7 +5,7 @@ const TopResume = () => {
 
 
   return (
-    <div className='border-gray-150 border bg-white shadow-shadowbase rounded w-full h-44 py-3 px-5'>
+    <div className='border-gray-150 border bg-white shadow-shadowbase rounded w-full h-auto py-3 px-5'>
               <div className='flex gap-3'>
                 <Avatar width='48' height='49' />
                 <div>
