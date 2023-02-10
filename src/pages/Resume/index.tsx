@@ -25,9 +25,9 @@ const Resume = () => {
             <div className='bg-primarygray animate-pulse w-1/2 h-56 mt-7' />
           </div>
         </div>
-      : (!data?.user?.length ||
-    !data?.history?.length ||
-    !data?.skill?.length ||
+      : (!data?.user?.length &&
+    !data?.history?.length &&
+    !data?.skill?.length &&
     !data?.education?.length ? <div className='flex flex-col items-center justify-center max-w-4xl md:w-full w-[90%] mx-auto md:space-x-16 mt-14 border-dashed border-2 h-64 rounded mb-28'>
       <div className='text-center w-full'>
         <h1 className='text-2xl text-secondarygray mb-4'>You are yet to build a resume template for yourself!</h1>
