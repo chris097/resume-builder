@@ -94,7 +94,7 @@ const Login = () => {
                     type='submit'
               />
               </div>
-              <div className='text-center text-xl my-3'>OR</div>
+              {/* <div className='text-center text-xl my-3'>OR</div>
               <div className='space-y-3'>
                   <div className='flex justify-center items-center gap-2 cursor-pointer text-secondarygray border h-12 rounded'>
                       <BsFacebook color='blue' size={24} />
@@ -104,7 +104,7 @@ const Login = () => {
                       <FcGoogle size={24} />
                       <p>Sign In with Google</p>
                   </div>
-              </div>
+              </div> */}
           </form>
           <p className='mt-3 text-sm text-secondarygray'>I don't have an account Sign Up <Link to={ROUTE_URL.REGISTER_URL} className='text-red-400 cursor-pointer'>here</Link></p>
     </div>
