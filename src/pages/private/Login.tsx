@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import Button from '../../components/Button';
 import Input from '../../components/input';
 import Logo from '../../public/svgs/Logo';
-import { BsFacebook } from 'react-icons/bs';
-import {FcGoogle} from 'react-icons/fc'
+// import { BsFacebook } from 'react-icons/bs';
+// import {FcGoogle} from 'react-icons/fc'
 import { Link, useNavigate } from 'react-router-dom';
 import { ROUTE_URL } from '../../routes/url';
 import { useFormik } from 'formik';
@@ -38,7 +38,6 @@ const Login = () => {
                     toast.success(responses.message);
                     navigate(ROUTE_URL.RESUME_URL);
                     setAuthUser(responses.data.token)
-                    console.log(responses)
                     setUserName(responses.data.fullName)
                     setLoading(false);
                 } else {
