@@ -1,8 +1,8 @@
 import React from "react";
 import { ROUTE_URL } from "./url";
-const ForgotPassword = React.lazy(() => import("../pages/private/ForgotPassword"));
 const Register = React.lazy(() => import("../pages/private/Register"));
 const Login = React.lazy(() => import("../pages/private/Login"));
+// const ForgotPassword = React.lazy(() => import("../pages/private/ForgotPassword"));
 
 type PrivateProps = {
   path: string;
@@ -18,8 +18,8 @@ export const privateRoutes: PrivateProps[] = [
     path: ROUTE_URL.REGISTER_URL,
     element: Register,
   },
-  {
-    path: ROUTE_URL.FORGOT_PASSWORD,
-    element: ForgotPassword,
-  },
+  // {
+  //   path: ROUTE_URL.FORGOT_PASSWORD,
+  //   element: ForgotPassword,
+  // },
 ];

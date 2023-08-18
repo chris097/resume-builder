@@ -17,17 +17,17 @@ const ResumeSection: React.FC<Props> = (props) => {
 
   return (
     <>
-      <div className="w-[255px] md:block hidden relative">
-        <div className="fixed">
-          <div className="border-b py-2 text-basegray">Personal Information</div>
-          <div className="mt-6 text-sm text-basegray">RESUME SECTION</div>
-          <div className="mt-4 flex flex-col space-y-3">
-            {navLinks.map((navLink, index) => (
-              <Link to={navLink.to} key={index} className="text-sm font-light hover:text-red-500 cursor-pointer flex items-center space-x-2">
+        <div className='w-[255px] md:block hidden relative'>
+          <div className='fixed'>
+            <div className='border-b py-2 text-basegray'>Personal Information</div>
+          {/* <div className='mt-6 text-sm text-basegray'>RESUME SECTION</div> */}
+          <div className='mt-4 flex flex-col space-y-3'>
+            {/* {navLinks.map((navLink, index) => (
+             <Link to={navLink.to} key={index} className='text-sm font-light hover:text-red-500 cursor-pointer flex items-center space-x-2'>
                 <div>{navLink.icon}</div>
                 <div>{navLink.name}</div>
-              </Link>
-            ))}
+            </Link>
+            ))} */}
           </div>
         </div>
         <div className="relative">
