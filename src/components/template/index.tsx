@@ -17,16 +17,27 @@ const Template = React.forwardRef((props, ref: any) => {
       <ResumeSection handlePrint={() => console.log('download')} />
       <div ref={ref} className='bg-primarygray h-auto rounded-md w-full px-6 py-8'>
       <About />
-      <div className='w-full space-y-6 mt-4'>
-        <WorkHistory />
-        <div className='md:flex md:gap-6 block w-full'>
+        <div className='w-full flex gap-4 mt-4'>
+          <div className='bg-white w-2/3'>
+            <Skill />
+            {/* <PortfolioContact /> */}
+            <Education />
+            <Certification />
+          </div>
+
+          <div className='bg-white w-full'>
+            <WorkHistory /> 
+          </div>
+
+        {/* <WorkHistory /> */}
+        {/* <div className='md:flex md:gap-6 block w-full'>
           <PortfolioContact />
           <Skill />
-        </div>
-        <div className='md:flex md:gap-6 block w-full'>
+        </div> */}
+        {/* <div className='md:flex md:gap-6 block w-full'>
           <Education />
           <Certification />
-        </div>
+        </div> */}
       </div>
     </div>
     </div>

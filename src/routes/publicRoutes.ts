@@ -6,7 +6,7 @@ const Education = React.lazy(() =>  import("../pages/Education"));
 const ProfessionalSummary = React.lazy(() => import("../pages/ProfessionalSummary"));
 const TechnicalSkills = React.lazy(() => import("../pages/TechnicalSkills"));
 const WorkHistory =  React.lazy(() => import("../pages/WorkHistory"));
-const Resume = React.lazy(() => import("../pages/Resume"));
+const Resume = React.lazy(() => import("../pages/Template"));
 
 
 type PublicRouteProps = {

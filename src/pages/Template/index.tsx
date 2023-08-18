@@ -16,7 +16,7 @@ const Resume = () => {
 
   return (
     <div>
-      {showNav === false ? "" : <Sidebar />}
+      {/* {showNav === false ? "" : <Sidebar />}
       {isLoading ? 
         <div className='max-w-6xl w-[90%] mx-auto mt-14'>
           <div className='bg-primarygray animate-pulse w-full h-80' />
@@ -42,7 +42,8 @@ const Resume = () => {
         />
         </Link>
       </div>
-    </div> : <Template ref={printRef} />)}
+    </div> : <Template ref={printRef} />)} */}
+       <Template ref={printRef} />
     </div>
   )
 };
