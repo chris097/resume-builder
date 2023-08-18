@@ -9,14 +9,15 @@ module.exports = {
         secondarygray: "#404553",
         lightred: "#F9F3F3",
         corered: "#EB5757",
+        coregray: "#3B3B3B",
       },
       fontFamily: {
-        opensans: "Poppins, sans-serif"
+        opensans: "Poppins, sans-serif",
       },
       boxShadow: {
-        shadowbase: "0px 0px 5px rgba(255, 255, 255, 0.75)"
-      }
+        shadowbase: "0px 0px 5px rgba(255, 255, 255, 0.75)",
+      },
     },
   },
   plugins: [],
-}
+};
