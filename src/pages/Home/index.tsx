@@ -3,7 +3,7 @@ import { TypeAnimation } from 'react-type-animation';
 import Logo from '../../public/svgs/Logo';
 import HomeButton from '../../components/Button';
 import TopResume from '../../components/Home/TopResume';
-import { names, nextElementInList } from '../../utils/nextElementInList';
+import { colors, names, nextElementInList } from '../../utils/nextElementInList';
 import { nameVariant } from '../../utils/nameVariant';
 import { Link } from 'react-router-dom';
 import { ROUTE_URL } from '../../routes/url';
@@ -12,16 +12,15 @@ import BottomResume from '../../components/Home/BottomResume';
 const Home = () => {
   //state
   const [currentName, setCurrentName] = useState<string>(names[0]);
+  const [currentColor, setCurrentColor] = useState<string>(colors[0]);
 
-  // variables
-  let name: string = names[0]
-  
   useEffect(() => {
     const interval = setInterval(() => {
-      name = nextElementInList(names, name, setCurrentName);
+      nextElementInList(names, currentName, setCurrentName);
+      nextElementInList(colors, currentColor, setCurrentColor);
     }, 3700);
     return () => clearInterval(interval);
-  }, []);
+  }, [currentName]);
 
   return (
     <section>
@@ -32,20 +31,21 @@ const Home = () => {
           </div>
           <Link to={ROUTE_URL.LOGIN_URL}>
             <HomeButton
-            bg='bg-corered'
-            color='text-white'
-            height='h-11'
-            width='w-24'
-            name='Sign In'
-          />
+              bg=''
+              color='text-white'
+              height='h-11'
+              width='w-32'
+              name=''
+            />
           </Link>
         </div>
       </div>
+      <span className={`absolute ${currentColor} -left-28 -top-28 rounded-full opacity-10 blur-3xl transition-all ease-in-out duration-700 aspect-square h-[400px] -z-10 animate-pulse`} />
       <div className='mt-24 w-[90%] mx-auto'>
         <div className='md:flex block justify-between gap-20 items-center md:h-[90vh] h-auto'>
           <div className='flex-1 md:w-1/2 w-full'>
             <h1 className='text-7xl font-bold font-opensans tracking-tighter leading-0'>
-              <div className={`${nameVariant(currentName)} tracking-tighter text-8xl`}>
+              <div className={`${nameVariant(currentName)} tracking-tighter transition-all duration-1000 ease-in-out delay-300 text-8xl`}>
                 <TypeAnimation
                   sequence={[
                     `${names[0]}`, 3000,
@@ -54,8 +54,8 @@ const Home = () => {
                     `${names[3]}`, 3000
                   ]}
                   cursor={false}
-                repeat={Infinity}
-              />
+                  repeat={Infinity}
+                />
               </div>
               a career in tech.
             </h1>
@@ -64,13 +64,13 @@ const Home = () => {
               Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
             </p>
             <Link to={ROUTE_URL.LOGIN_URL}>
-            <HomeButton
-              bg='bg-corered'
-              color='text-white'
-              height='h-14'
-              width='w-44'
-              name='Get Started'
-            />
+              <HomeButton
+                bg='bg-corered'
+                color='text-white'
+                height='h-14'
+                width='w-44'
+                name='Get Started'
+              />
             </Link>
           </div>
           <div className='font-opensans flex-1 space-y-6 md:ml-5 md:mt-0 mt-10'>
@@ -78,55 +78,9 @@ const Home = () => {
             <BottomResume />
           </div>
         </div>
-        {/* <div className='mt-24'>
-          <h1 className='font-opensans text-7xl font-semibold'>How it works?</h1>
-          <div className='flex justify-between mt-24 gap-10'>
-            <div className='flex-1 py-3'>
-              <div className='flex gap-4 border-gray-50 border p-5 w-4/6 rounded-md bg-white shadow'>
-                <div className='bg-slate-200 animate-pulse rounded-full w-14 h-14' />
-                <div className=' space-y-2'>
-                  <div className='bg-slate-200 animate-pulse rounded-full w-44 h-4' />
-                <div className='bg-slate-200 animate-pulse rounded-full w-52 h-4' />
-                <div className='bg-slate-200 animate-pulse rounded-full w-64 h-4' />
-                </div>
-              </div>
-              <div className='flex gap-4 border-gray-50 border mt-4 p-5 w-5/6 rounded-md bg-white shadow'>
-                <div className='bg-slate-200 animate-pulse rounded w-14 h-14' />
-                <div className=' space-y-2'>
-                  <div className='bg-slate-200 animate-pulse rounded-full w-44 h-4' />
-                <div className='bg-slate-200 animate-pulse rounded-full w-52 h-4' />
-                <div className='bg-slate-200 animate-pulse rounded-full w-64 h-4' />
-                </div>
-              </div>
-            </div>
-            <div className='flex-1 border'>Text</div>
-          </div>
-          <div className='flex flex-row-reverse justify-between mt-24 gap-10'>
-            <div className='flex-1 py-3'>
-              <div className='flex gap-4 border-gray-50 border p-5 w-4/6 rounded-md bg-white shadow'>
-                <div className='bg-slate-200 animate-pulse rounded-full w-14 h-14' />
-                <div className=' space-y-2'>
-                  <div className='bg-slate-200 animate-pulse rounded-full w-44 h-4' />
-                <div className='bg-slate-200 animate-pulse rounded-full w-52 h-4' />
-                <div className='bg-slate-200 animate-pulse rounded-full w-64 h-4' />
-                </div>
-              </div>
-              <div className='flex gap-4 border-gray-50 border mt-4 p-5 w-5/6 rounded-md bg-white shadow'>
-                <div className='bg-slate-200 animate-pulse rounded w-14 h-14' />
-                <div className=' space-y-2'>
-                  <div className='bg-slate-200 animate-pulse rounded-full w-44 h-4' />
-                <div className='bg-slate-200 animate-pulse rounded-full w-52 h-4' />
-                <div className='bg-slate-200 animate-pulse rounded-full w-64 h-4' />
-                </div>
-              </div>
-            </div>
-            <div className='flex-1 border'>Text</div>
-          </div>
-        </div>
-        <div>More</div> */}
       </div>
     </section>
-  )
+  );
 };
 
 export default Home;

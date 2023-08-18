@@ -1,8 +1,12 @@
+// import { useEffect } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import Avatar from '../../public/svgs/avatar';
 
 const TopResume = () => {
 
+  // useEffect(() => {
+  //   setInterval
+  // },[])
 
   return (
     <div className='border-gray-150 border bg-white shadow-shadowbase rounded w-full h-auto py-3 px-5'>

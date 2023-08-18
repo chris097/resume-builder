@@ -142,9 +142,17 @@ const Login = ({ handleLogin }: any) => {
             <Link className="w-[50%] " to={ROUTE_URL.FORGOT_PASSWORD}>
               <div className="text-[#0073E6] mt-4 text-[16px] w-[81%] font-opensans font-normal flex justify-end ">Forgot password?</div>
             </Link>
-            <div className="mt-5">
-              <Button height="h-12" width="w-[81%]" bg="bg-corered" name={loading ? "loading..." : "Sign In"} color="text-white" type="submit" />
-            </div>
+            <Link to={ROUTE_URL.RESUME_URL}>
+              <div className="mt-5">
+                <Button
+                height="h-12"
+                width="w-[81%]"
+                bg="bg-corered"
+                name={loading ? "loading..." : "Sign In"}
+                color="text-white" type="submit"
+              />
+              </div>
+            </Link>
           </form>
         </div>
       </div>
