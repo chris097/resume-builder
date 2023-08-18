@@ -17,7 +17,7 @@ const Header = () => {
             <span onClick={handleCloseNav} className='cursor-pointer block md:hidden'><FiMenu size={26} /></span>
                <Logo width='134' height='40' />
             </div>
-            <div className='whitespace-nowrap text-sm text-secondarygray bg-primarygray p-3 rounded'>Updated: Dec, 10, 2023 09:40PM</div>
+            <div className='whitespace-nowrap text-sm text-secondarygray bg-primarygray p-3 rounded'>Share</div>
         </div>
         </div>
     )

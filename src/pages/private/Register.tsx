@@ -5,52 +5,50 @@ import { BsFacebook } from 'react-icons/bs';
 import {FcGoogle} from 'react-icons/fc'
 import { Link, useNavigate } from 'react-router-dom';
 import { ROUTE_URL } from '../../routes/url';
-import { useFormik } from 'formik';
-import { registerSchema } from '../../validator';
-import { useAuth } from '../../context/authContext';
-import toast from 'react-hot-toast';
-import { useState } from 'react';
+// import { useFormik } from 'formik';
+// import { registerSchema } from '../../validator';
+// import { useAuth } from '../../context/authContext';
+// import toast from 'react-hot-toast';
+// import { useState } from 'react';
 
 const Register = () => {
 
-    const [loading, setLoading] = useState<boolean>(false)
+    // const [loading, setLoading] = useState<boolean>(false)
 
-    const { register } = useAuth();
+    // const { register } = useAuth();
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    type formikProps = {
-        fullName: string
-        email: string
-        password: string
-    };
+    // type formikProps = {
+    //     email: string
+    //     password: string
+    // };
 
-    const initialValues: formikProps = {
-        fullName: '',
-        email: '',
-        password: ''
-    }
+    // const initialValues: formikProps = {
+    //     email: '',
+    //     password: ''
+    // }
 
-    const formik = useFormik({
-        initialValues,
-        validationSchema: registerSchema,
-        onSubmit: values => {
-            setLoading(true)
-            return register(values, (responses: any) => { 
-                if (responses.status === 201) {
-                    toast.success(responses.message)
-                    navigate(ROUTE_URL.RESUME_URL);
-                    setLoading(false)
-                } else {
-                    toast.error("Invaid credentials");
-                    setLoading(false)
-                }
-            }, (err: any) => {
-                toast.error(err.message)
-                setLoading(false)
-            })
-        }
-    });
+    // const formik = useFormik({
+    //     initialValues,
+    //     validationSchema: registerSchema,
+    //     onSubmit: values => {
+    //         setLoading(true)
+    //         return register(values, (responses: any) => { 
+    //             if (responses.status === 201) {
+    //                 toast.success(responses.message)
+    //                 navigate(ROUTE_URL.RESUME_URL);
+    //                 setLoading(false)
+    //             } else {
+    //                 toast.error("Invaid credentials");
+    //                 setLoading(false)
+    //             }
+    //         }, (err: any) => {
+    //             toast.error(err.message)
+    //             setLoading(false)
+    //         })
+    //     }
+    // });
 
     return (
         <div className='flex justify-center flex-col items-center mx-auto mt-8 font-opensans'>
@@ -59,9 +57,9 @@ const Register = () => {
                 height='52'
             />
             <h1 className='mt-3'>Add some text here</h1>
-            <form onSubmit={formik.handleSubmit} className='md:w-1/3 w-[90%] border h-auto py-6 bg-white rounded mt-6 px-6'>
+            <form className='md:w-1/3 w-[90%] border h-auto py-6 bg-white rounded mt-6 px-6'>
                 <p className='text-secondarygray'>Please fill details:</p>
-                <div className='mt-6'>
+                {/* <div className='mt-6'>
                     <Input
                         label='Full Name'
                         input={{
@@ -71,17 +69,17 @@ const Register = () => {
                         }}
                     />
                     {formik.touched.fullName && formik.errors.fullName ? (<span className='text-xs text-red-500'>{formik.errors.fullName}</span>) : null}
-                </div>
+                </div> */}
                 <div className='mt-3'>
                     <Input
                         label='Email'
                         input={{
                             type: 'email',
                             placeholder: "christian@gmail.com",
-                            ...formik.getFieldProps("email")
+                            // ...formik.getFieldProps("email")
                         }}
                     />
-                    {formik.touched.email && formik.errors.email ? (<span className='text-xs text-red-500'>{formik.errors.email}</span>) : null}
+                    {/* {formik.touched.email && formik.errors.email ? (<span className='text-xs text-red-500'>{formik.errors.email}</span>) : null} */}
                 </div>
                 <div className='mt-3'>
                     <Input
@@ -89,21 +87,23 @@ const Register = () => {
                         input={{
                             type: 'password',
                             placeholder: "******",
-                            ...formik.getFieldProps('password')
+                            // ...formik.getFieldProps('password')
                         }}
                     />
-                    {formik.touched.password && formik.errors.password ? (<span className='text-xs text-red-500'>{formik.errors.password}</span>) : null}
+                    {/* {formik.touched.password && formik.errors.password ? (<span className='text-xs text-red-500'>{formik.errors.password}</span>) : null} */}
                 </div>
                 <div className='text-red-400 text-sm flex justify-end mt-2 cursor-pointer'>Forgotten password?</div>
                 <div className='mt-5'>
-                    <HomeButton
+                    <Link to={ROUTE_URL.RESUME_URL}>
+                        <HomeButton
                         height='h-12'
                         width='w-full'
                         bg='bg-corered'
-                        name={loading ? "loading..." : 'Sign Up'}
+                        name={"loading..."}
                         color='text-white'
                         type='submit'
                     />
+                    </Link>
                 </div>
                 <div className='text-center text-xl my-3'>OR</div>
                 <div className='space-y-3'>
