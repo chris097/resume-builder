@@ -1,13 +1,7 @@
-import { CONSTANT_TEXT } from '../../constant';
-import { apiUrls } from '../../helpers/api/url';
-import useQueryApi from '../../helpers/useQuery'
 import Avatar from '../../public/svgs/avatar'
-import { SkeletonAbout } from '../skeletonLoader';
+// import { SkeletonAbout } from '../skeletonLoader';
 
 const About = () => {
-
-  const { data, isLoading } = useQueryApi([CONSTANT_TEXT.GET_WORK_HISTORY], apiUrls.USER_INFO);
-  const bios: [] = data?.data?.user;
 
   return (
     <div className='bg-white w-full p-4 rounded-md'>

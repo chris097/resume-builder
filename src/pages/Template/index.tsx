@@ -9,10 +9,7 @@ import { ROUTE_URL } from '../../routes/url';
 
 const Resume = () => {
 
-  const { showNav } = useDashboardContext()
   const printRef: any = useRef();
-
-  const { isData: data, isLoading } = useDashboardContext();
 
   return (
     <div>

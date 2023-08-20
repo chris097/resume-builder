@@ -34,17 +34,17 @@ export const useAuth = () => React.useContext(authContext);
 export const AuthProvider = ({ children }: Props) => {
   const [userName, setUserName] = useState({});
 
-  const register = (payload: string[] | {}, responses: [], err: any) => {
+  const register = (payload: object) => {
     const registerUrl = `${REACT_APP_BACKEND_URL}/${apiUrls.REGISTER_URL}`;
-    return mutationApi(registerUrl, apiUrls.POST, payload, responses, err);
+    return mutationApi(registerUrl, apiUrls.POST, payload);
   };
 
-  const login = (payload: any, responses: any, err: any) => {
+  const login = (payload: any) => {
     const registerUrl = `${REACT_APP_BACKEND_URL}/${apiUrls.LOGIN_URL}`;
-    return mutationApi(registerUrl, apiUrls.POST, payload, responses, err);
+    return mutationApi(registerUrl, apiUrls.POST, payload);
   };
 
-  const logout = (navigate: any) => {
+  const logout = (navigate:any) => {
     removeAuthUser();
     navigate(ROUTE_URL.HOME_URL);
     toast.success("Logged out successfully!");
