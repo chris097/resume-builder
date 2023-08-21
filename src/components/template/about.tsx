@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import Avatar from '../../public/svgs/avatar'
 // import { SkeletonAbout } from '../skeletonLoader';
 
 const About = () => {
+
+  const [name, setName] = useState<string>("Christian Chiemela");
 
   return (
     <div className='bg-white w-full p-4 rounded-md'>
@@ -10,6 +13,7 @@ const About = () => {
           <div>
             <div>
             <div className='text-xl capitalize'>Christian Chiemela</div>
+            {/* <input className='hover:outline-dotted w-1/2' onChange={e => setName(e.target.value)} value={name} /> */}
             <div className='font-light flex text-sm gap-2 text-basegray'>
               <span>+2347015362583</span> |
               <span>chrisfidel.international@gmail.com</span> |

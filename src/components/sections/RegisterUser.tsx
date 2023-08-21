@@ -55,14 +55,18 @@ const RegisterUser = () => {
     return (
         <div>
             <form onSubmit={formik.handleSubmit} className="w-[100%] mt-[55px]">
-                <div>        
+                <div>
                     <Input
+                        container='w-[81%]'
                         label='Email address'
+                        labelStyle="text-coregray text-base font-normal"
                         handleClick=""
                         icon=""
+                        inputContainer="w-full h-[56px] flex items-center rounded-[8px] border border-[#CED4DA] px-3 mt-1"
+                        inputStyle="w-full h-full focus:outline-none text-basegray text-sm"
                         input={{
                             type: "email",
-                            placeholder:"Johndoe@gmail.com",
+                            placeholder: "Johndoe@gmail.com",
                             ...formik.getFieldProps('email')
                         }}
                     />
@@ -70,9 +74,13 @@ const RegisterUser = () => {
                 </div>
                 <div className="mt-5">
                     <Input
+                        container='w-[81%]'
                         label="Password"
+                        labelStyle="text-coregray text-base font-normal"
                         handleClick={() => setShowPassword(!showPassword)}
                         icon={showPassword ? <HidePassword /> : <ShowPassword />}
+                        inputContainer="w-full h-[56px] flex items-center rounded-[8px] border border-[#CED4DA] px-3 mt-1"
+                        inputStyle="w-full h-full focus:outline-none text-basegray text-sm"
                         input={{
                             type: showPassword ? "text" : "password",
                             placeholder: "******",
