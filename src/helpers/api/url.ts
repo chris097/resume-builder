@@ -1,4 +1,4 @@
-type API = {
+interface ApiProps {
     PUT: string
     POST: string
     PATCH: string
@@ -10,7 +10,7 @@ type API = {
     EDUCATION_URL: string
 }
 
-export const apiUrls:API = {
+export const apiUrls:ApiProps = {
     POST: 'POST',
     PUT: 'PUT',
     PATCH: 'PATCH',
