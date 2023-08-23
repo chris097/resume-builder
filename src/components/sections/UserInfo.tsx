@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '../input';
 import { useFormik } from 'formik';
 import { userInfoSchema } from '../../validator';
-import { createUserInfo } from '../../service';
+import { createUserInfo, updateUserInfo } from '../../service';
 import toast from 'react-hot-toast';
 import { useQueryClient } from '@tanstack/react-query';
 import { apiUrls } from '../../helpers/api/url';
@@ -21,37 +21,59 @@ interface FormikProps {
 const UserInfo = () => {
 
     const [loading, setLoading] = useState<boolean>(false);
-
-    // const { data, isLoading } = useQueryApi([CONSTANT_TEXT.GET_USER_INFO], apiUrls.USER_INFO);
-
     const queryClient = useQueryClient();
 
+    const { data } = useQueryApi([CONSTANT_TEXT.GET_USER_INFO], apiUrls.USER_INFO);
+
+    const id = data?.data[0]?._id;
+    const isData = data?.data?.length;
+
+
     const initialValues: FormikProps = {
-        fullname: "",
-        email: "",
-        phone: "",
-        portfolio: "",
-        address: "",
-        bio: ""
+        fullname: data?.data[0]?.fullname || "",
+        email: data?.data[0]?.email || "",
+        phone: data?.data[0]?.phone || "",
+        portfolio: data?.data[0]?.portfolio || "",
+        address: data?.data[0]?.address || "",
+        bio: data?.data[0]?.bio|| ""
     };
 
     const formik = useFormik({
         initialValues,
+        enableReinitialize: true,
         validationSchema: userInfoSchema,
         onSubmit: async (values) => {
-            const responses = await createUserInfo(values);
             setLoading(true);
-            if (responses.status === 201) {
-                setLoading(false);
-                toast.success(responses.message);
-                queryClient.invalidateQueries({queryKey: [CONSTANT_TEXT.GET_USER_INFO]})
-            } else {
-                toast.error(responses.message);
-                setLoading(false);
+            if (isData === 0) {
+                const responses = await createUserInfo(values);
+                if (responses.status === 201) {
+                    queryClient.invalidateQueries({
+                        queryKey: ["info"],
+                        exact: true
+                    })
+                    setLoading(false);
+                    toast.success(responses.message);
+                } else {
+                    toast.error(responses.message);
+                    setLoading(false);
+                }
+            }
+            else {
+                const responses = await updateUserInfo(values, id);
+                if (responses.status === 201) {
+                    queryClient.invalidateQueries({
+                        queryKey: ["info"],
+                        exact: true
+                    })
+                    setLoading(false);
+                    toast.success(responses.message);
+                } else {
+                    toast.error(responses.message);
+                    setLoading(false);
+                }
             }
         }
     });
-
 
     return (
         <>
@@ -131,16 +153,17 @@ const UserInfo = () => {
                 <label className="text-xs">Bio</label>
                 <textarea
                     onChange={formik.handleChange}
-                    name='bio'
+                        name='bio'
+                        value={formik.values.bio}
                     className="w-full h-32 flex items-center px-3 py-2 outline-none text-basegray text-xs bg-primarygray rounded mt-1" />
             </div>
             <button
                 className="bg-primarygray hover:bg-black/5 text-xs font-opensans w-full py-3 mt-10"
                 type="submit"
             >
-                {loading ? <span className='animate-pulse text-lg'>...</span> : "Submit"}
+                {loading ? "Loading..." : isData === 0 ? "Submit" : "Update"}
             </button>
-            </form> 
+            </form>
             </>
     );
 };

@@ -3,6 +3,7 @@ interface ApiProps {
     POST: string
     PATCH: string
     USER_INFO: string
+    USER_INFO_ID: (id:string) => void,
     WORK_HISTORY: string
     TECHNICAL_SKILL: string
     LOGIN_URL: string
@@ -15,6 +16,7 @@ export const apiUrls:ApiProps = {
     PUT: 'PUT',
     PATCH: 'PATCH',
     USER_INFO: 'user/info',
+    USER_INFO_ID: (id) => `user/info/${id}`,
     WORK_HISTORY: 'user/work-history',
     TECHNICAL_SKILL: 'user/skill',
     LOGIN_URL: 'auth/login',

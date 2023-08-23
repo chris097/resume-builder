@@ -22,17 +22,23 @@ const ResumeSection = () => {
           <div className="w-[350px] pr-6">
             <UserInfo />
           </div>
-        </div>
-        <div className="relative">
-          <div className="fixed bottom-14">
-            <button onClick={() => logout(navigate)} type="button" className="text-sm mt-4 font-light hover:text-red-500 cursor-pointer flex space-x-2">
+          <button onClick={() => logout(navigate)} type="button" className="text-sm font-light mt-32 hover:text-red-500 cursor-pointer flex space-x-2">
               <div>
                 {/* <FiLogOut size="16px" /> */}
               </div>
               <div>Logout</div>
             </button>
-          </div>
         </div>
+        {/* <div className="relative">
+          <div className="fixed bottom-14">
+            <button onClick={() => logout(navigate)} type="button" className="text-sm mt-4 font-light hover:text-red-500 cursor-pointer flex space-x-2">
+              <div>
+                <FiLogOut size="16px" />
+              </div>
+              <div>Logout</div>
+            </button>
+          </div>
+        </div> */}
       </div>
     </>
   );
