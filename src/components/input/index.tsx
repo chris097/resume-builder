@@ -1,15 +1,15 @@
 import React from "react";
 
 interface IProps {
-  label?: string
-  input?: any
-  handleClick: any
-  icon: any
-  inputContainer: string
-  inputStyle: string
-  labelStyle: string
-  container: string
-};
+  label?: string;
+  input?: any;
+  handleClick: any;
+  icon: any;
+  inputContainer: string;
+  inputStyle: string;
+  labelStyle: string;
+  container: string;
+}
 
 const Input: React.FC<IProps> = (props) => {
   return (
@@ -21,7 +21,9 @@ const Input: React.FC<IProps> = (props) => {
       </div>
       <div className={props.inputContainer}>
         <input className={props.inputStyle} {...props.input} />
-        <div className="cursor-pointer" onClick={props.handleClick}>{props.icon}</div>
+        <div className="cursor-pointer" onClick={props.handleClick}>
+          {props.icon}
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,15 @@
-import React from "react";
+// import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import sideImg from "../../public/svgs/images/LoginPix.png";
 import { ROUTE_URL } from "../../routes/url";
+import Input from "../../components/input";
+import Button from "../../components/Button";
+// import HidePassword from "../../public/svgs/HidePassword";
+// import ShowPassword from "../../public/svgs/ShowPassword";
 
 function ForgotPassword() {
+  //   const [showPassword, setShowPassword] = useState<boolean>(false);
+
   return (
     <>
       <div className=" flex w-[100%] justify-between">
@@ -26,6 +32,30 @@ function ForgotPassword() {
                 </svg>
               </div>
             </Link>
+          </div>
+          <div className=" mt-[180px] ">
+            <h1 className="text-[28px] mb-[11px] text-center text-[#000112]">Forgot Password</h1>
+            <p className="text-[#666666] text-center text-opacity-80 text-[14px]">Enter the email address associated with your account</p>
+            <Input
+              container=" ml-[91px] mt-[60px] w-[81%]"
+              label="Email address"
+              labelStyle="text-coregray text-base font-normal"
+              handleClick=""
+              icon=""
+              inputContainer="w-[89%] h-[56px] flex items-center rounded-[8px] border border-[#CED4DA] px-3 mt-1"
+              inputStyle="w-full h-full focus:outline-none text-basegray text-sm"
+              input={{
+                type: "email",
+                placeholder: "",
+                //   ...formik.getFieldProps("email"),
+              }}
+            />
+
+            <div className="mt-10 ml-[91px]">
+              <Link to={ROUTE_URL.VERIFICATION}>
+                <div className="h-12 w-[84%] rounded-[8px] text-center pt-[12px] bg-corered text-white"> Send </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
