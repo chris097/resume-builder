@@ -6,27 +6,30 @@ import dateFormat from '../dateFormat';
 import { SkeletonWorkHistory } from '../skeletonLoader';
 
 const WorkHistory = () => {
-  const { data, isLoading } = useQueryApi([CONSTANT_TEXT.GET_WORK_HISTORY], apiUrls.WORK_HISTORY);
-  const works: [] = data?.data?.history;
-
-  console.log('works:',works)
 
   return (
-    <div className='flex-1 bg-white rounded-md h-auto px-6 pt-7 pb-0.5'>
-          <div id="pdf" className='font-medium text-xl mb-5'>WORK HISTORY</div>
-      {isLoading ? <div>
-        <SkeletonWorkHistory />
-      </div> : works?.map((work:any, index:any) => (
-          <div key={index} className='mb-6 border-b last:border-none border-gray-100 pb-6'>
-          <div className='text-secondarygray capitalize'>{work.title} | {work.employer}, Nigeria</div>
-            <div className='text-secondarygray font-light text-sm'>{dateFormat(work.start_date)} - Present</div>
-            <div className='text-secondarygray mt-5 text-sm font-light'>
-              {work.description}
-            </div>
-          </div>
-      ))}
+    <div className='bg-white w-full rounded-md h-auto px-6 pt-7 pb-0.5'>
+      <div id="pdf" className='font-medium text-xl mb-5'>WORK HISTORY</div>
+      <div className='mb-6 border-b last:border-none border-gray-100 pb-6'>
+        <div className='text-secondarygray capitalize'>Frontend Developer | Yep!, Nigeria</div>
+        <div className='text-secondarygray font-light text-sm'>April 2021 - January 2013</div>
+        <div className='text-secondarygray mt-5 text-sm font-light'>
+          A foremost payment gateway platform that help merchant grow their business and cater to a global audience. I developed and delivered features such as:
+          Virtual account, SMS alert notifications, deposit/withdraw account, business owner verification, business document upload, POS, payments/transactions via QRCode, business settlement logs. Collaborated with various teams of IT professionals to set specifications for new and modification of existing features.
+           design and code.
+        </div>
+      </div>
+      <div className='mb-6 border-gray-100 pb-6'>
+        <div className='text-secondarygray capitalize'>Frontend Developer | Yep!, Nigeria</div>
+        <div className='text-secondarygray font-light text-sm'>April 2021 - January 2013</div>
+        <div className='text-secondarygray mt-5 text-sm font-light'>
+           A foremost payment gateway platform that help merchant grow their business and cater to a global audience. I developed and delivered features such as:
+          Virtual account, SMS alert notifications, deposit/withdraw account, business owner verification, business document upload, POS, payments/transactions via QRCode, business settlement logs. Collaborated with various teams of IT professionals to set specifications for new and modification of existing features.
+           design and code.
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default WorkHistory;

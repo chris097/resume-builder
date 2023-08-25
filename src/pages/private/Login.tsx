@@ -89,7 +89,7 @@ const Login = ({ handleLogin }: any) => {
         </div>
         <div className="mt-[12px] ml-[94px]">
           <div className="border-b-[6px]    w-[82%]  border-b-[#D9D9D9]">{/* hi */}</div>
-          <div className=" w-[40%] mt-[-5px] border-[2.5px]    border-[#EB5757]  ">{/* hi */}</div>
+          <div className=" w-[40%]  ml-[2%] mt-[-5px] border-[2.5px]    border-[#EB5757]  ">{/* hi */}</div>
           <form onSubmit={formik.handleSubmit} className="w-[100%] mt-[55px]">
             <label className="text-[16px] font-normal  text-[#3B3B3B]" htmlFor="email">
               Email address
@@ -107,6 +107,12 @@ const Login = ({ handleLogin }: any) => {
             <br />{" "} */}
             <div className=" mt-3">
               <Input
+                container="w-[81%]"
+                labelStyle="text-coregray text-base font-normal"
+                handleClick=""
+                icon=""
+                inputContainer="w-full h-[56px] flex items-center rounded-[8px] border border-[#CED4DA] px-3 mt-1"
+                inputStyle="w-full h-full focus:outline-none text-basegray text-sm"
                 label="Password"
                 input={{
                   type: "password",

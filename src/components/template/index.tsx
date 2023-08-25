@@ -1,36 +1,53 @@
-import React from 'react'
-// import { fetchApi } from '../../helpers/api/fetchApi'
-// import useQueryApi from '../../helpers/useQuery'
-import Certification from '../certification'
-import Education from '../education'
-import PortfolioContact from '../portfolioContact'
-import ResumeSection from '../sections/resume'
-import Skill from '../skills'
-import WorkHistory from '../workHistory'
-import About from './about'
+import React from 'react';
+import { TransformWrapper, TransformComponent, useControls } from "react-zoom-pan-pinch";
+import { AiOutlineZoomIn, AiOutlineZoomOut } from "react-icons/ai";
+import { RxReset } from "react-icons/rx";
+import Certification from '../certification';
+import Education from '../education';
+import ResumeSection from '../sections/resume';
+import Skill from '../skills';
+import WorkHistory from '../workHistory';
+import About from './about';
 
 
 const Template = React.forwardRef((props, ref: any) => {
 
-  return (
-    <div className='flex max-w-6xl md:w-full w-[90%] mx-auto md:space-x-16 mt-14 mb-28'>
-      <ResumeSection handlePrint={() => console.log('download')} />
-      <div ref={ref} className='bg-primarygray h-auto rounded-md w-full px-6 py-8'>
-      <About />
-      <div className='w-full space-y-6 mt-4'>
-        <WorkHistory />
-        <div className='md:flex md:gap-6 block w-full'>
-          <PortfolioContact />
-          <Skill />
-        </div>
-        <div className='md:flex md:gap-6 block w-full'>
-          <Education />
-          <Certification />
+  const Controls = () => {
+    const { zoomIn, zoomOut, resetTransform } = useControls();
+    return (
+      <div className='fixed bottom-10 flex justify-center left-0 z-50 right-0'>
+        <div className='bg-white shadow w-[300px] rounded-full h-14 flex justify-between px-10 items-center'>
+          <button onClick={() => zoomIn()}><AiOutlineZoomIn size={23} /></button>
+          <button onClick={() => zoomOut()}><AiOutlineZoomOut size={23} /></button>
+          <button onClick={() => resetTransform()}><RxReset size={23} /></button>
         </div>
       </div>
+    );
+  };
+
+  return (
+    <div className='flex w-[95%] mx-auto mt-14 mb-28 relative'>
+      <ResumeSection />
+      {/* <TransformWrapper>
+        <Controls />
+        <TransformComponent> */}
+          <div className='bg-primarygray h-auto rounded-md z-40 w-4/6 px-6 py-8'>
+            <About />
+            <div className='w-full flex gap-4 mt-4'>
+              <div className='bg-white w-2/3'>
+                <Skill />
+                <Education />
+                <Certification />
+              </div>
+              <div className='bg-white w-full'>
+                <WorkHistory />
+              </div>
+            </div>
+          </div>
+        {/* </TransformComponent>
+      </TransformWrapper> */}
     </div>
-    </div>
-  )
-})
+  );
+});
 
 export default Template;

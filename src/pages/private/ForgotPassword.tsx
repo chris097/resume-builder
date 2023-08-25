@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../context/authContext";
-import Button from "../../components/Button";
 import sideImg from "../../public/svgs/images/LoginPix.png";
 import { ROUTE_URL } from "../../routes/url";
 
 function ForgotPassword() {
-  const [loading, setLoading] = useState<boolean>(false);
-  const { login, setUserName } = useAuth();
   return (
     <>
       <div className=" flex w-[100%] justify-between">
@@ -31,25 +27,6 @@ function ForgotPassword() {
               </div>
             </Link>
           </div>
-          <div className=" text-center mt-[160px] ">
-            <h1 className="text-[#000112] text-[28px] font-opensans font-[400]  ">Forgot Password</h1>
-            <p className=" text-[#666666] mt-[11px] text-opacity-80 text-[14px] ">Enter the email address associated with your account</p>
-          </div>
-          <form>
-            <div className="mt-[61px] ml-[91px]">
-              <label className="text-[16px] font-normal  text-[#3B3B3B]" htmlFor="email">
-                Email address
-              </label>
-              <br />
-              <input className="w-[81%] text-[#3B3B3B] mb-[16px] placeholder:text-[#666666] placeholder:opacity-50  h-[56px] mt-[12px] rounded-[8px] outline-[#3B3B3B]  pl-[16px] border-[1px] border-[#CED4DA] " type="email" placeholder="" />
-            </div>
-            <div className="mt-5 ml-[91px]">
-              <Link className="" to="">
-                <div className=" h-[50px] w-[81%] bg-corered pt-[12px] text-center rounded-[8px]  text-white ">Send</div>
-              </Link>
-              {/* <Button height="h-12" width="w-[81%]" bg="bg-corered" name={loading ? "loading..." : "Send"} color="text-white" type="submit" /> */}
-            </div>
-          </form>
         </div>
       </div>
     </>

@@ -1,19 +1,30 @@
 import React from "react";
 
-type InputProps = {
+interface IProps {
   label?: string;
   input?: any;
-};
+  handleClick: any;
+  icon: any;
+  inputContainer: string;
+  inputStyle: string;
+  labelStyle: string;
+  container: string;
+}
 
-const Input: React.FC<InputProps> = (props) => {
+const Input: React.FC<IProps> = (props) => {
   return (
-    <div className="w-[81%]">
+    <div className={props.container}>
       <div>
-        <label className="text-coregray text-base font-normal" htmlFor={props.label}>
+        <label className={props.labelStyle} htmlFor={props.label}>
           {props.label}
         </label>
       </div>
-      <input className="w-full h-[56px] rounded-[8px] border-[#CED4DA] px-3 mt-1 focus:outline-none text-basegray text-sm border" {...props.input} />
+      <div className={props.inputContainer}>
+        <input className={props.inputStyle} {...props.input} />
+        <div className="cursor-pointer" onClick={props.handleClick}>
+          {props.icon}
+        </div>
+      </div>
     </div>
   );
 };

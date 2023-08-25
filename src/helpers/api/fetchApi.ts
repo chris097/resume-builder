@@ -1,6 +1,6 @@
 import { getAuthUser } from ".";
 
-export const fetchApi = (url: string) => {
+export const fetchApi = async(url: string) => {
     const token = getAuthUser();
 
     const headers = new Headers({
@@ -13,8 +13,11 @@ export const fetchApi = (url: string) => {
     const request = new Request(url, {
         headers,
     });
-
-    return fetch(request)
-        .then(response => response.json())
-        .then(data => data)
+    
+    try {
+        const responses = await fetch(request);
+        return responses;
+    } catch (error) {
+        console.log(error)
+    }
 }

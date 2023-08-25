@@ -1,12 +1,12 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useState } from "react";
 // import { boolean } from 'yup';
-import { CONSTANT_TEXT } from "../constant";
-import { apiUrls } from "../helpers/api/url";
-import useQueryApi from "../helpers/useQuery";
+// import { CONSTANT_TEXT } from "../constant";
+// import { apiUrls } from "../helpers/api/url";
+// import useQueryApi from "../helpers/useQuery";
 
 type NavProps = {
   showNav: boolean;
-  isLoading: boolean;
+  // isLoading: boolean;
   isData?: any;
   toggleOpenNav: () => void;
   toggleCloseNav: () => void;
@@ -32,8 +32,9 @@ export const NavProvider = ({ children }: Props) => {
   //states
   const [showNav, setShowNav] = useState<boolean>(defaultState.showNav);
   const [isData, setData] = useState<object>({});
+
   //query
-  const { data, isLoading } = useQueryApi([CONSTANT_TEXT.GET_ABOUT], apiUrls.USER_INFO);
+  // const { data, isLoading } = useQueryApi([CONSTANT_TEXT.GET_ABOUT], apiUrls.USER_INFO);
 
   //functions
   const toggleOpenNav = () => {
@@ -44,13 +45,13 @@ export const NavProvider = ({ children }: Props) => {
     setShowNav(false);
   };
 
-  useEffect(() => {
-    setData(data?.data);
-  }, [data, isLoading]);
+  // useEffect(() => {
+  //   setData(data?.data);
+  // }, [data, isLoading]);
 
   const values = {
     showNav,
-    isLoading,
+    // isLoading,
     isData,
     toggleOpenNav,
     toggleCloseNav,
