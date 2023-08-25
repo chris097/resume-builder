@@ -16,7 +16,8 @@ export const fetchApi = async(url: string) => {
     
     try {
         const responses = await fetch(request);
-        return responses;
+        const data = responses.json();
+        return data;
     } catch (error) {
         console.log(error)
     }

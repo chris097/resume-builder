@@ -8,7 +8,9 @@ const useQueryApi = (
   payload: string
 ) => {
   const { data, isLoading } = useQuery({queryKey: [key],
-    queryFn: () => fetchApi(`${REACT_APP_BACKEND_URL}/${payload}`)})
+    queryFn: () => fetchApi(`${REACT_APP_BACKEND_URL}/${payload}`),
+    enabled: true
+  })
     return {
       data,
       isLoading
