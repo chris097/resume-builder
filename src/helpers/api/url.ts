@@ -10,6 +10,8 @@ interface ApiProps {
     LOGIN_URL: string
     REGISTER_URL: string
     EDUCATION_URL: string
+    FORGOT_PASSWORD_URL: string
+    RESET_PASSWORD: (id:string, token:string) => string;
 }
 
 export const apiUrls:ApiProps = {
@@ -23,5 +25,7 @@ export const apiUrls:ApiProps = {
     TECHNICAL_SKILL: 'user/skill',
     LOGIN_URL: 'auth/login',
     REGISTER_URL: 'auth/register',
-    EDUCATION_URL: 'user/education'
+    EDUCATION_URL: 'user/education',
+    FORGOT_PASSWORD_URL: 'auth/forgot-password',
+    RESET_PASSWORD: (id, token) => `auth/reset-password/${id}/${token}`
 }

@@ -15,5 +15,13 @@ export const verifyOtp = (payload: object) => {
     const veriftOtpUrl = `${REACT_APP_BACKEND_URL}/${apiUrls.VERIFY_OTP}`;
     return mutationApi(veriftOtpUrl, apiUrls.POST, payload);
 };
+export const forgotPassword = (payload: object) => {
+    const forgotPasswordUrl = `${REACT_APP_BACKEND_URL}/${apiUrls.FORGOT_PASSWORD_URL}`;
+    return mutationApi(forgotPasswordUrl, apiUrls.POST, payload);
+}
+export const resetPassword = (payload: object, id:any, token: any) => {
+    const forgotPasswordUrl = `${REACT_APP_BACKEND_URL}/${apiUrls.RESET_PASSWORD(id, token)}`;
+    return mutationApi(forgotPasswordUrl, apiUrls.POST, payload);
+}
 
 

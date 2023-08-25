@@ -1,6 +1,6 @@
 import React from "react";
 import { ROUTE_URL } from "./url";
-const CreatePassword = React.lazy(() => import("../pages/private/CreatePassword"));
+const ResetPassword = React.lazy(() => import("../pages/private/ResetPassword"));
 const Verification = React.lazy(() => import("../components/Splash/Verification"));
 const ForgotPassword = React.lazy(() => import("../pages/private/ForgotPassword"));
 const VerifyOtp = React.lazy(() => import("../pages/private/VerifyOtp"));
@@ -29,7 +29,7 @@ export const privateRoutes: PrivateProps[] = [
     element: Verification,
   },
   {
-    path: ROUTE_URL.CREATE_PASSWORD,
-    element: CreatePassword,
+    path: ROUTE_URL.RESET_PASSWORD(":id", ":token"),
+    element: ResetPassword,
   },
 ];

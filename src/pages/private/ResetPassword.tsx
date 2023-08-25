@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import sideImg from "../../public/images/LoginPix.png";
 import { ROUTE_URL } from "../../routes/url";
 import HidePassword from "../../public/svgs/HidePassword";
@@ -6,9 +6,43 @@ import ShowPassword from "../../public/svgs/ShowPassword";
 import { useState } from "react";
 import Input from "../../components/input";
 import Button from "../../components/Button";
+import { useFormik } from "formik";
+import { resetPasswordSchema } from "../../validator";
+import { resetPassword } from "../../service";
+import toast from "react-hot-toast";
 
-function CreatePassword() {
+function ResetPassword() {
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
+
+  const { id, token } = useParams();
+
+  const navigate = useNavigate();
+
+  const initialValues: { password: string, passwordConfirmation: string } = {
+    password: "",
+    passwordConfirmation: ""
+  };
+
+  const formik = useFormik({
+    initialValues,
+    validationSchema: resetPasswordSchema,
+    onSubmit: async (values) => {
+      setIsLoading(true);
+      const password = { password: values.password };
+      const responses = await resetPassword(password, id, token);
+      if (responses.status === "success") {
+        setIsLoading(false);
+        toast.success(responses.message);
+        navigate(ROUTE_URL.LOGIN_URL);
+      } else {
+        setIsLoading(false);
+        toast.error(responses.message)
+      }
+    }
+  });
 
   return (
     <>
@@ -37,7 +71,7 @@ function CreatePassword() {
             <h1 className="text-[28px] mb-[11px] text-center text-[#000112]">Create Password</h1>
             <p className="text-[#666666] text-center text-opacity-80 text-[14px]">Please create a new password</p>
 
-            <div className="ml-[91px] mt-[66px]">
+            <form onSubmit={formik.handleSubmit} className="ml-[91px] mt-[66px]">
               <Input
                 container="w-[81%]"
                 label="Create New Password"
@@ -49,27 +83,29 @@ function CreatePassword() {
                 input={{
                   type: showPassword ? "text" : "password",
                   placeholder: "******",
-                  // ...formik.getFieldProps("password"),
+                  ...formik.getFieldProps("password"),
                 }}
               />
+              <p className="text-xs text-corered mt-1 font-opensans">{formik.errors.password && formik.touched.password ? formik.errors.password : null}</p>
               <Input
                 container="w-[81%] mt-[14px]"
                 label="Confirm New Password                                                                    "
                 labelStyle="text-coregray text-base font-normal"
-                handleClick={() => setShowPassword(!showPassword)}
-                icon={showPassword ? <HidePassword /> : <ShowPassword />}
+                handleClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                icon={showConfirmPassword ? <HidePassword /> : <ShowPassword />}
                 inputContainer="w-full h-[56px] flex items-center rounded-[8px] border border-[#CED4DA] px-3 mt-1"
                 inputStyle="w-full h-full focus:outline-none text-basegray text-sm"
                 input={{
-                  type: showPassword ? "text" : "password",
+                  type: showConfirmPassword ? "text" : "password",
                   placeholder: "******",
-                  // ...formik.getFieldProps("password"),
+                  ...formik.getFieldProps("passwordConfirmation"),
                 }}
               />
+              <p className="text-xs text-corered mt-1 font-opensans">{formik.errors.passwordConfirmation && formik.touched.passwordConfirmation ? formik.errors.passwordConfirmation : null}</p>
               <div className="mt-10">
-                <Button height="h-12" width="w-[81%]" bg="bg-corered" name="Submit" color="text-white" type="submit" />
+                <Button height="h-12" width="w-[81%]" bg="bg-corered" name={`${isLoading ? "Loading..." : "Submit"}`} color="text-white" type="submit" />
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -77,4 +113,4 @@ function CreatePassword() {
   );
 }
 
-export default CreatePassword;
+export default ResetPassword;

@@ -1,14 +1,41 @@
-// import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import sideImg from "../../public/svgs/images/LoginPix.png";
 import { ROUTE_URL } from "../../routes/url";
 import Input from "../../components/input";
-import Button from "../../components/Button";
-// import HidePassword from "../../public/svgs/HidePassword";
-// import ShowPassword from "../../public/svgs/ShowPassword";
+import { useFormik } from "formik";
+import { forgotPasswordSchema } from "../../validator";
+import { forgotPassword } from "../../service";
+import toast from "react-hot-toast";
+
 
 function ForgotPassword() {
-  //   const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const navigate = useNavigate();
+
+  const initialValues: {email: string} = {
+    email: ""
+  }
+
+  const formik = useFormik({
+    initialValues,
+    validationSchema: forgotPasswordSchema,
+    onSubmit: async (values) => {
+      setIsLoading(true);
+      const respones = await forgotPassword(values);
+      if (respones.status === "success") {
+        setIsLoading(false);
+        navigate(ROUTE_URL.VERIFICATION);
+        toast.success(respones.message);
+      } else {
+        toast.error(respones.message);
+        setIsLoading(false);
+      }
+    }
+  });
+  
 
   return (
     <>
@@ -33,7 +60,7 @@ function ForgotPassword() {
               </div>
             </Link>
           </div>
-          <div className=" mt-[180px] ">
+          <form onSubmit={formik.handleSubmit} className=" mt-[180px] ">
             <h1 className="text-[28px] mb-[11px] text-center text-[#000112]">Forgot Password</h1>
             <p className="text-[#666666] text-center text-opacity-80 text-[14px]">Enter the email address associated with your account</p>
             <Input
@@ -46,17 +73,19 @@ function ForgotPassword() {
               inputStyle="w-full h-full focus:outline-none text-basegray text-sm"
               input={{
                 type: "email",
-                placeholder: "",
-                //   ...formik.getFieldProps("email"),
+                placeholder: "johndoe@gmail.com",
+                ...formik.getFieldProps("email"),
               }}
             />
-
+            <p className="text-xs text-corered ml-[91px] mt-1 font-opensans">{formik.errors.email && formik.touched.email ? formik.errors.email : null}</p>
             <div className="mt-10 ml-[91px]">
-              <Link to={ROUTE_URL.VERIFICATION}>
-                <div className="h-12 w-[84%] rounded-[8px] text-center pt-[12px] bg-corered text-white"> Send </div>
-              </Link>
+              <button
+                type="submit"
+                className="h-12 w-[84%] rounded-[8px] text-center bg-corered text-white">
+                {isLoading ? "Loading..." : "Send"}
+              </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </>

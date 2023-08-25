@@ -11,7 +11,7 @@ type RouteProps = {
   TECHNICAL_SKILL_URL: string;
   FORGOT_PASSWORD: string;
   VERIFICATION: string;
-  CREATE_PASSWORD: string;
+  RESET_PASSWORD: (id:string, token:string) => string;
 };
 
 export const ROUTE_URL: RouteProps = {
@@ -27,5 +27,5 @@ export const ROUTE_URL: RouteProps = {
   EDUCATION_URL: "/resume/education",
   TECHNICAL_SKILL_URL: "/resume/skill",
   VERIFICATION: "/verification",
-  CREATE_PASSWORD: "/create-password",
+  RESET_PASSWORD: (id, token) => `/reset-password/${id}/${token}`,
 };
