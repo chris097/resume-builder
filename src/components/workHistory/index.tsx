@@ -6,10 +6,6 @@ import dateFormat from '../dateFormat';
 import { SkeletonWorkHistory } from '../skeletonLoader';
 
 const WorkHistory = () => {
-  const { data, isLoading } = useQueryApi([CONSTANT_TEXT.GET_WORK_HISTORY], apiUrls.WORK_HISTORY);
-  const works: [] = data?.data?.history;
-
-  console.log('works:', works)
 
   return (
     <div className='bg-white w-full rounded-md h-auto px-6 pt-7 pb-0.5'>
