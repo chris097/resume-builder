@@ -1,10 +1,6 @@
-// import React, { useEffect } from 'react'
-import { CONSTANT_TEXT } from '../../constant';
-import { apiUrls } from '../../helpers/api/url';
-import useQueryApi from '../../helpers/useQuery';
 import { GrStatusGood } from 'react-icons/gr';
-import { SkeletonWorkHistory } from '../skeletonLoader';
-// import Range from '../../public/svgs/range'
+
+
 
 const skills: string[] = ["Javascript", "CSS3", "React.JS", "Typescript", "HTML5", "TailwindCSS", "Node.JS", "Quality Focus", "Next.JS"]
 
@@ -28,4 +24,4 @@ const Skill = () => {
   );
 };
 
-export default Skill
+export default Skill;
