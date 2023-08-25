@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }: Props) => {
     return mutationApi(registerUrl, apiUrls.POST, payload);
   };
 
-  const logout = (navigate:any) => {
+  const logout = (navigate: any) => {
     removeAuthUser();
     navigate(ROUTE_URL.HOME_URL);
     toast.success("Logged out successfully!");
