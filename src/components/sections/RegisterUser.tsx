@@ -21,7 +21,6 @@ interface FormikProps {
 const RegisterUser = () => {
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
-    const [confirmPassword, setConfirmPassword] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const navigate = useNavigate();
@@ -40,7 +39,7 @@ const RegisterUser = () => {
             setIsLoading(true)
             const payload: object = { email: values.email, password: values.password };
             const responses = await register(payload);
-            if (responses.status === 201) {
+            if (responses.isVerified === false) {
                 setAuthUser(responses.data.token);
                 toast.success(responses.message);
                 navigate(ROUTE_URL.RESUME_URL);
