@@ -59,7 +59,7 @@ const Home = () => {
               </div>
               a career in tech.
             </h1>
-            <p className='text-2xl font-opensans font-light text-secondarygray mt-5 mb-8'>
+            <p className='text-xl font-opensans font-light text-secondarygray mt-5 mb-8'>
               The template includes carefully structured sections for personal information, summary or objective, work experience, education, skills, projects, certifications, and more. You can easily customize these sections to fit your unique background.
             </p>
             <Link to={ROUTE_URL.LOGIN_URL}>
