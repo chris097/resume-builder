@@ -47,13 +47,13 @@ const Home = () => {
               color='text-white'
               height='h-11'
               width='w-32'
-              name='Start'
+              name='Get Started'
             />
           </Link>
         </div>
       </div>
       <span className={`absolute ${currentColor} -left-28 -top-28 rounded-full opacity-10 blur-3xl transition-all ease-in-out duration-700 aspect-square h-[400px] -z-10 animate-pulse`} />
-      <div className='mt-24 w-[90%] mx-auto'>
+      <div className='mt-[7%] w-[90%] mx-auto'>
         <div className='md:flex block justify-between gap-20 items-center md:h-[90vh] h-auto'>
           <div className='flex-1 md:w-1/2 w-full'>
             <Reveal>
@@ -143,7 +143,8 @@ const Home = () => {
             <div className='bg-[#0073E6]/10 h-[237px] w-full absolute -bottom-7' />
         </div>
       </div>
-        <div className='mt-56 border-t py-16'>
+      <Reveal>
+         <div className='mt-56 border-t py-16'>
         <div className='w-[90%] mx-auto'>
           <div className='flex justify-between'>
             <div>
@@ -199,6 +200,7 @@ const Home = () => {
           </div>
         </div>
         </div>
+       </Reveal>
     </section>
   );
 };
