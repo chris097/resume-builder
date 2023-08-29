@@ -8,8 +8,8 @@ export const loginSchema = Yup.object().shape({
 export const registerSchema = Yup.object().shape({
     email: Yup.string().email().trim().required("email is required"),
     password: Yup.string().required('password is required.'),
-    // passwordConfirmation: Yup.string().required('passwords must match')
-    //  .oneOf([Yup.ref('password'), null], 'passwords must match'),
+    passwordConfirmation: Yup.string().required('passwords must match')
+     .oneOf([Yup.ref('password'), null], 'passwords must match'),
 });
 
 export const userInfoSchema = Yup.object().shape({

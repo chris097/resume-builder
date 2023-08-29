@@ -15,12 +15,13 @@ import ShowPassword from '../../public/svgs/ShowPassword';
 interface FormikProps {
     email: string
     password: string
-//    passwordConfirmation: string
+   passwordConfirmation: string
 };
 
 const RegisterUser = () => {
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
+     const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const RegisterUser = () => {
     const initialValues: FormikProps = {
         email: "",
         password: "",
-        // passwordConfirmation: ""
+        passwordConfirmation: ""
     };
 
     const formik = useFormik({
@@ -88,18 +89,23 @@ const RegisterUser = () => {
                     />
                     <p className="text-xs text-corered mt-1 font-opensans">{formik.errors.password && formik.touched.password ? formik.errors.password : null}</p>
                 </div>
-                {/* <div className=" mt-5">
+                <div className=" mt-5">
                     <Input
-                        handleClick={() => setConfirmPassword(!confirmPassword)}
-                        icon={confirmPassword ? <HidePassword /> : <ShowPassword />}
-                        label="Comfirm Password"
+                        container="w-[81%] mt-[14px]"
+                        label="Confirm New Password                                                                    "
+                        labelStyle="text-coregray text-base font-normal"
+                        handleClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        icon={showConfirmPassword ? <HidePassword /> : <ShowPassword />}
+                        inputContainer="w-full h-[56px] flex items-center rounded-[8px] border border-[#CED4DA] px-3 mt-1"
+                        inputStyle="w-full h-full focus:outline-none text-basegray text-sm"
                         input={{
-                            type: confirmPassword ? "text" : "password",
+                            type: showConfirmPassword ? "text" : "password",
                             placeholder: "******",
+                            ...formik.getFieldProps("passwordConfirmation"),
                         }}
                     />
                     <p className="text-xs text-corered mt-1 font-opensans">{formik.errors.passwordConfirmation && formik.touched.passwordConfirmation ? formik.errors.passwordConfirmation : null}</p>
-                </div> */}
+                </div>
                 <div className="mt-14">
                     <Button
                         height="h-12"

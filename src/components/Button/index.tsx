@@ -19,6 +19,7 @@ const Button: React.FC<ButtonProps> = (props) => {
             hover:opacity-80
             font-opensans
             text-base
+            px-4
             ${props.width ?? "w-44"} 
             ${props.height ?? "h-16"} 
             rounded`
