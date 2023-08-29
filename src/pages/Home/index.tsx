@@ -46,7 +46,7 @@ const Home = () => {
               bg='bg-corered'
               color='text-white'
               height='h-11'
-              width='w-32'
+              width='w-36'
               name='Get Started'
             />
           </Link>
