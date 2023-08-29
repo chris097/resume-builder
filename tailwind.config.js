@@ -10,9 +10,12 @@ module.exports = {
         lightred: "#F9F3F3",
         corered: "#EB5757",
         coregray: "#3B3B3B",
+        simpleblack: "#404653",
+        primaryblack: "#000112",
       },
       fontFamily: {
         opensans: "Poppins, sans-serif",
+        poppins: "Poppins, sans-serif",
       },
       boxShadow: {
         shadowbase: "0px 0px 5px rgba(255, 255, 255, 0.75)",
