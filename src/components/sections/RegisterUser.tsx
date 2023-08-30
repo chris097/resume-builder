@@ -40,10 +40,10 @@ const RegisterUser = () => {
             setIsLoading(true)
             const payload: object = { email: values.email, password: values.password };
             const responses = await register(payload);
-            if (responses.isVerified === false) {
+            if (responses.data.isVerified === false && responses.status === 201) {
                 setAuthUser(responses.data.token);
                 toast.success(responses.message);
-                navigate(ROUTE_URL.RESUME_URL);
+                navigate(ROUTE_URL.VERIFICATION);
                 setIsLoading(false);
             } else {
                 toast.error(responses.message);

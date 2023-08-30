@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import routes from "./routes";
 import { NavProvider } from "./context/dashboardContext";
 import { AuthProvider } from "./context/authContext";
+import logo from "./public/images/cev.png";
 import "./App.css";
 
 function App() {
@@ -13,7 +14,9 @@ function App() {
   return (
     <AuthProvider>
       <NavProvider>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="flex justify-center h-screen items-center w-full">
+          <img className="w-44 h-44 animate-pulse" src={logo} alt="app logo" />
+        </div>}>
           <Toaster position="top-center" />
           <Router>
             <Routes>
