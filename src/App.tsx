@@ -6,6 +6,7 @@ import { NavProvider } from "./context/dashboardContext";
 import { AuthProvider } from "./context/authContext";
 import logo from "./public/images/cev.png";
 import "./App.css";
+import Loader from "./components/Loading/Loader";
 
 function App() {
   const privateRoutes = routes.privateRoutes.map(({ path, element: Component }) => <Route key={path} path={path} element={<Component />} />);
@@ -14,9 +15,7 @@ function App() {
   return (
     <AuthProvider>
       <NavProvider>
-        <Suspense fallback={<div className="flex justify-center h-screen items-center w-full">
-          <img className="w-44 h-44 animate-pulse" src={logo} alt="app logo" />
-        </div>}>
+        <Suspense fallback={<Loader />}>
           <Toaster position="top-center" />
           <Router>
             <Routes>
