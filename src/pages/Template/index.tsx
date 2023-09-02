@@ -5,7 +5,8 @@ const Resume = () => {
 
   return (
     <div className=''>
-      <Template />
+      {/* <Template /> */}
+      <div className='text-center mt-10'>Hello, we will do a lot of great stuff!</div>
     </div>
   )
 };
