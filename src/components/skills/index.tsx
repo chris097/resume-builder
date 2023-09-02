@@ -7,7 +7,7 @@ const skills: string[] = ["Javascript", "CSS3", "React.JS", "Typescript", "HTML5
 const Skill = () => {
   return (
     <div className='px-6 pt-7 bg-white rounded-md h-auto'>
-      <div className='font-medium text-xl mb-5'>Technical Skills</div>
+      <div className='font-medium text-lg mb-3'>Technical Skills</div>
       <div className='flex flex-wrap gap-3'>
         {skills.map((skill, index) => (
           <div key={index} className='items-center flex mb-2'>

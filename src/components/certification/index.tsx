@@ -3,8 +3,8 @@ import Cert from '../../public/svgs/cert'
 
 const Certification = () => {
   return (
-    <div className='px-6 w-full relative bg-white rounded-md h-[192px]'>
-        <div className='font-medium text-xl mb-5'>Certification</div>
+    <div className='px-6 w-full relative bg-white rounded-md h-auto'>
+        <div className='font-medium text-lg mb-3'>Certification</div>
         <div className='flex items-center mb-2'>
             {/* <Cert /> */}
             <span className='text-secondarygray text-sm font-semibold'>

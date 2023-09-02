@@ -4,7 +4,7 @@ import Template from '../../components/template';
 const Resume = () => {
 
   return (
-    <div>
+    <div className=''>
       <Template />
     </div>
   )

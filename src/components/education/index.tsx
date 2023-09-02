@@ -7,8 +7,8 @@ const Education = () => {
   // const educations = data?.data;
   
   return (
-    <div className='px-6 py-7 w-full bg-white rounded-md h-[192px]'>
-        <div className='font-medium text-xl mb-5'>Education</div>
+    <div className='px-6 py-6 w-full bg-white rounded-md h-auto'>
+        <div className='font-medium text-lg mb-3'>Education</div>
         <div className='flex flex-col space-y-2'>
           <div className='text-secondarygray text-sm capitalize'>Diploma in Mechactronic Engineering</div>
           <div className='text-secondarygray text-sm capitalize'>Federal Polytechnic, Nekede</div>

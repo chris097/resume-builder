@@ -23,11 +23,11 @@ const About = () => {
   return (
     <div className='bg-white w-full p-4 rounded-md'>
       <div className='flex space-x-5'>
-        {isLoading ? <SkeletonAbout /> : (!data?.data?.length ? <>
+        {/* {isLoading ? <SkeletonAbout /> : (!data?.data?.length ? <> */}
             <Avatar width='60' height='61' />
             <div>
               <div>
-                <div className='text-xl capitalize'>Chrisian Chiemela</div>
+                <div className='text-lg capitalize'>Chrisian Chiemela</div>
                 {/* <input className='hover:outline-dotted w-1/2' onChange={e => setName(e.target.value)} value={name} /> */}
                 <div className='font-light flex text-sm gap-2 text-basegray'>
                   <span>+2347015362583</span> |
@@ -37,23 +37,22 @@ const About = () => {
                 <div className='font-light text-sm text-basegray capitalize'></div>
               </div>
               <div className='mt-2'>
-                <div className='text-md'>ADDRESS</div>
+                <div className='text-sm'>ADDRESS</div>
                 <div className='font-light text-sm text-basegray capitalize'>10 Deji Odunuga Street, Anthony Village, Lagos Nigeria.</div>
               </div>
               <div className='mt-2'>
-                <div className='text-md'>Bio</div>
+                <div className='text-sm'>BIO</div>
                 <div className='font-light text-sm text-basegray capitalize'>
                   Experience Frontend developer with 3years production experience in frontend developer in reactjs and javascript.
                 </div>
               </div>
             </div>
-          </> : data?.data?.map((info: IProps, index: number) => (
+          {/* </> : data?.data?.map((info: IProps, index: number) => (
           <Fragment key={index}>
             <Avatar width='60' height='61' />
             <div>
               <div>
                 <div className='text-xl capitalize'>{info.fullname}</div>
-                {/* <input className='hover:outline-dotted w-1/2' onChange={e => setName(e.target.value)} value={name} /> */}
                 <div className='font-light flex text-sm gap-2 text-basegray'>
                   <span>{info.phone || "+2347015362583"}</span> |
                   <span>{info.email ?? "chrisfidel.international@gmail.com"}</span> |
@@ -73,7 +72,7 @@ const About = () => {
               </div>
             </div>
           </Fragment>
-        )))}
+        )))} */}
       </div>
     </div>
   );

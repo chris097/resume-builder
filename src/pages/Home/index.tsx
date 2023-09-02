@@ -29,8 +29,8 @@ const Home = () => {
   }, [currentName]);
 
   return (
-    <section>
-      <div className='bg-white h-24 fixed w-full left-0 top-0 z-50 border-b'>
+    <section className='bg-white'>
+      <div className='bg-white h-24 fixed w-full left-0 top-0 z-50 border-b border-[#E4E7EB]'>
         <div className='flex justify-between h-full w-[90%] mx-auto items-center'>
           <div>
             <Logo width='122' height='42' />
@@ -52,8 +52,8 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      <span className={`absolute ${currentColor} -left-28 -top-28 rounded-full opacity-10 blur-3xl transition-all ease-in-out duration-700 aspect-square h-[400px] -z-10 animate-pulse`} />
-      <div className='mt-[7%] w-[90%] mx-auto'>
+      <span className={`absolute ${currentColor} -left-28 -top-28 rounded-full opacity-10 blur-3xl transition-all ease-in-out duration-700 aspect-square h-[400px] z-40 animate-pulse`} />
+      <div className='mt-[6.2%] w-[90%] mx-auto'>
         <div className='md:flex block justify-between gap-20 items-center md:h-[90vh] h-auto'>
           <div className='flex-1 md:w-1/2 w-full'>
             <Reveal>
