@@ -4,6 +4,6 @@ type Props = {
 }
 
 export const CONSTANT_TEXT:Props = {
-    GET_USER_INFO: 'info',
+    GET_USER_INFO: "info",
     APP_AUTH_TOKEN: 'e-builder'
 }

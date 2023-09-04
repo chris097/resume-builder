@@ -18,12 +18,12 @@ interface FormikProps {
     bio: string
 };
 
-const UserInfo = () => {
+const UserInfo = ({handleClick}: any) => {
 
     const [loading, setLoading] = useState<boolean>(false);
     const queryClient = useQueryClient();
 
-    const { data } = useQueryApi([CONSTANT_TEXT.GET_USER_INFO], apiUrls.USER_INFO);
+    const { data } = useQueryApi(CONSTANT_TEXT.GET_USER_INFO, apiUrls.USER_INFO);
 
     const id = data?.data[0]?._id;
     const isData = data?.data?.length;
@@ -165,8 +165,9 @@ const UserInfo = () => {
                     />
                 </div>
                 <button
-                    className="bg-corered hover:bg-black/5 text-xs text-white font-opensans mx-auto py-3 w-full mt-10"
-                    type="submit"
+                    className="bg-corered text-xs text-white font-opensans mx-auto py-3 w-full mt-10"
+                    // type="submit"
+                    onClick={handleClick}
                 >
                     {loading ? "Loading..." : isData === 0 ? "Next" : "Update"}
                 </button>
