@@ -34,6 +34,7 @@ const LoginUser = () => {
     onSubmit: async (values) => {
       setIsLoading(true);
       const responses = await login(values);
+      if (!responses) return setIsLoading(false);
       if (responses.status === 400) {
         toast.error(responses.message);
         setIsLoading(false);

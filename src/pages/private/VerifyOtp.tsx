@@ -18,6 +18,7 @@ const VerifyOtp = () => {
   const handleSubmit = async () => {
     setIsLoading(true);
     const responses = await verifyOtp({ email, otp });
+    if (!responses) return setIsLoading(false);
     if (responses.isVerified === true) {
       setIsLoading(false);
       toast.success(responses.message);

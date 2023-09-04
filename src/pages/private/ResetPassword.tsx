@@ -33,6 +33,7 @@ function ResetPassword() {
       setIsLoading(true);
       const password = { password: values.password };
       const responses = await resetPassword(password, id, token);
+      if (!responses) return setIsLoading(false);
       if (responses.status === "success") {
         setIsLoading(false);
         toast.success(responses.message);
