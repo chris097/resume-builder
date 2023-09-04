@@ -12,6 +12,7 @@ module.exports = {
         coregray: "#3B3B3B",
         simpleblack: "#404653",
         primaryblack: "#000112",
+        darkgray: "#E4E7EB"
       },
       fontFamily: {
         opensans: "Poppins, sans-serif",

@@ -8,12 +8,12 @@ const UserExperience = () => {
 console.log(current)
     return (
         <div>
-            <div className='mt-3 flex space-x-3'>
+            <div className='mt-10'>
                 <Input
                     handleClick=""
                     icon=""
-                    inputContainer='w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1'
-                    inputStyle='w-full h-full focus:outline-none bg-transparent text-basegray text-xs'
+                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
                     labelStyle='text-coregray text-xs font-normal'
                     label='Company'
                     container='w-full'
@@ -25,8 +25,8 @@ console.log(current)
                 <Input
                     handleClick=""
                     icon=""
-                    inputContainer='w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1'
-                    inputStyle='w-full h-full focus:outline-none bg-transparent text-basegray text-xs'
+                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
                     labelStyle='text-coregray text-xs font-normal'
                     label='Role'
                     container='w-full'
@@ -36,41 +36,69 @@ console.log(current)
                     }}
                 />
             </div>
-            <div className='mt-3 flex space-x-3'>
+            <div className='mt-3 flex'>
                 <Input
                     handleClick=""
                     icon=""
-                    inputContainer='w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1'
-                    inputStyle='w-full h-full focus:outline-none bg-transparent text-basegray text-xs'
+                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
                     labelStyle='text-coregray text-xs font-normal'
-                    label='Start Date'
+                    label='Start Month'
                     container='w-full'
                     input={{
                         type: "text",
-                        placeholder: "April 2022"
+                        placeholder: "March"
+                    }}
+                />
+              <Input
+                    handleClick=""
+                    icon=""
+                    inputContainer='w-full h-[42px] flex gap-3 items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
+                    labelStyle='text-coregray text-xs font-normal ml-3'
+                    label='Start Year'
+                    container='w-full space-x-3'
+                    input={{
+                        type: "text",
+                        placeholder: "2022"
+                    }}
+                />
+            </div>
+            {current && <div className='mt-3 flex'>
+                <Input
+                    handleClick=""
+                    icon=""
+                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
+                    labelStyle='text-coregray text-xs font-normal'
+                    label='End Month'
+                    container='w-full'
+                    input={{
+                        type: "text",
+                        placeholder: "April"
                     }}
                 />
                 {current && <Input
                     handleClick=""
                     icon=""
-                    inputContainer='w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1'
-                    inputStyle='w-full h-full focus:outline-none bg-transparent text-basegray text-xs'
-                    labelStyle='text-coregray text-xs font-normal'
-                    label='End Date'
-                    container='w-full'
+                    inputContainer='w-full h-[42px] flex gap-3 items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
+                    labelStyle='text-coregray text-xs font-normal ml-3'
+                    label='End Year'
+                    container='w-full space-x-3'
                     input={{
                         type: "text",
-                        placeholder: "April 2023"
+                        placeholder: "2023"
                     }}
                 />}
-            </div>
+            </div>}
             <div className='mt-3 w-full'>
-                <label className="text-xs">Description</label>
+                <label className="text-xs text-coregray">Description</label>
                 <textarea
                     // onChange={formik.handleChange}
                     name='description'
                     // value={formik.values.bio}
-                    className="w-full h-28 flex items-center px-3 py-2 outline-none text-basegray text-xs bg-primarygray rounded mt-1"
+                    className="w-full h-28 flex items-center border border-[#E4E7EB] bg-white  px-3 py-2 outline-none text-basegray text-xs rounded mt-1"
                 />
             </div>
             <div className='flex items-center mt-2 space-x-2'>
@@ -93,10 +121,10 @@ console.log(current)
                 <p className='text-[10px] text-coregray'>Currently working</p>
             </div>
             <button
-                className="bg-primarygray hover:bg-black/5 text-xs font-opensans w-full py-3 mt-10"
+                className="bg-corered text-white hover:bg-black/5 text-sm font-opensans w-full py-3 mt-10"
                 type="submit"
             >
-                Submit
+                Next
             </button>
         </div>
     );

@@ -6,32 +6,58 @@ const Education = () => {
     const [current, setCurrentWork] = useState<boolean>(true);
 
     return (
-        <div>
+        <div className='mt-10'>
             {/* <div className='mt-3 flex space-x-3'> */}
                 <Input
                     handleClick=""
                     icon=""
-                    inputContainer='w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1'
-                    inputStyle='w-full h-full focus:outline-none bg-transparent text-basegray text-xs'
+                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full focus:outline-none bg-white border px-3 border-[#E4E7EB] bg-transparent text-basegray text-xs'
                     labelStyle='text-coregray text-xs font-normal'
-                    label='Degree'
+                    label='School Name'
                     container='w-full mt-3'
                     input={{
                         type: "text",
-                        placeholder: "Diploma in Mechactronics Engineering"
+                        placeholder: "University of Lagos"
                     }}
                 />
                 <Input
                     handleClick=""
                     icon=""
-                    inputContainer='w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1'
-                    inputStyle='w-full h-full focus:outline-none bg-transparent text-basegray text-xs'
+                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full focus:outline-none bg-transparent bg-white border px-3 border-[#E4E7EB] text-basegray text-xs'
                     labelStyle='text-coregray text-xs font-normal'
-                    label='School'
+                    label='School Location'
                     container='w-full mt-3'
                     input={{
                         type: "text",
-                        placeholder: "Federal Polytechnic, Nekede"
+                        placeholder: "Lagos"
+                    }}
+                />
+                <Input
+                    handleClick=""
+                    icon=""
+                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full focus:outline-none bg-transparent bg-white border px-3 border-[#E4E7EB] text-basegray text-xs'
+                    labelStyle='text-coregray text-xs font-normal'
+                    label='Feild/Program'
+                    container='w-full mt-3'
+                    input={{
+                        type: "text",
+                        placeholder: "BSc"
+                    }}
+                />
+                <Input
+                    handleClick=""
+                    icon=""
+                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full focus:outline-none bg-transparent bg-white border px-3 border-[#E4E7EB] text-basegray text-xs'
+                    labelStyle='text-coregray text-xs font-normal'
+                    label='Field of Study'
+                    container='w-full mt-3'
+                    input={{
+                        type: "text",
+                        placeholder: "Mechatronics Engineering"
                     }}
                 />
             {/* </div> */}
@@ -39,8 +65,8 @@ const Education = () => {
                 <Input
                     handleClick=""
                     icon=""
-                    inputContainer='w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1'
-                    inputStyle='w-full h-full focus:outline-none bg-transparent text-basegray text-xs'
+                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full focus:outline-none bg-transparent bg-white border px-3 border-[#E4E7EB] text-basegray text-xs'
                     labelStyle='text-coregray text-xs font-normal'
                     label='Start Year'
                     container='w-full'
@@ -52,8 +78,8 @@ const Education = () => {
                 {current && <Input
                     handleClick=""
                     icon=""
-                    inputContainer='w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1'
-                    inputStyle='w-full h-full focus:outline-none bg-transparent text-basegray text-xs'
+                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
+                    inputStyle='w-full h-full focus:outline-none bg-transparent bg-white border px-3 border-[#E4E7EB] text-basegray text-xs'
                     labelStyle='text-coregray text-xs font-normal'
                     label='End Year'
                     container='w-full'
@@ -82,11 +108,11 @@ const Education = () => {
                 />
                 <p className='text-[10px] text-coregray'>Currently working</p>
             </div>
-            <div className='flex justify-between items-center mt-6 text-xs text-coregray'>
+            {/* <div className='flex justify-between items-center mt-6 text-xs text-coregray'>
                 <p>Add More</p>
                 <span className='bg-primarygray w-5 h-5 text-sm flex justify-center items-center rounded-full'>+</span>
-            </div>
-            <Input
+            </div> */}
+            {/* <Input
                     handleClick=""
                     icon=""
                     inputContainer='w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1'
@@ -111,12 +137,12 @@ const Education = () => {
                         type: "text",
                         placeholder: "http://javascript-algorithm"
                     }}
-                />
+                /> */}
             <button
-                className="bg-primarygray hover:bg-black/5 text-xs font-opensans w-full py-3 mt-10"
+                className="bg-corered text-white hover:bg-black/5 text-sm font-opensans w-full py-3 mt-10"
                 type="submit"
             >
-                Submit
+                Next
             </button>
         </div>
     );

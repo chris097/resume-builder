@@ -34,22 +34,18 @@ const LoginUser = () => {
     onSubmit: async (values) => {
       setIsLoading(true);
       const responses = await login(values);
+      if (!responses) return setIsLoading(false);
       if (responses.status === 400) {
         toast.error(responses.message);
         setIsLoading(false);
-      }
-      if (responses.data.isVerified !== true) {
-        toast.error("Account not verified");
-        setIsLoading(false);
-      }
-      if (responses.status === 201 && responses.data.isVerified === true) {
-        setAuthUser(responses.data.token);
-        toast.success(responses.message);
-        navigate(ROUTE_URL.RESUME_URL);
+      } else if (responses.status === 201 && responses.data.isVerified === false) {
+        toast.error("Account not verified!");
         setIsLoading(false);
       } else {
-        toast.error(responses.message);
+        setAuthUser(responses.data.token);
+        toast.success(responses.message);
         setIsLoading(false);
+        navigate(ROUTE_URL.RESUME_URL);
       }
     },
   });

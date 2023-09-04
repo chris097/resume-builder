@@ -26,12 +26,25 @@ const Template = React.forwardRef((props, ref: any) => {
   };
 
   return (
-    <div className='flex w-[95%] mx-auto mt-14 mb-28 relative'>
-      <ResumeSection />
+    <div className='flex relative bg-primarygray'>
+      <div className=' border'><ResumeSection /></div>
+      <div className='w-full pl-[45%] pr-10 mb-5'>
+          <About />
+        <div className='w-full flex gap-1 mt-1'>
+              <div className='bg-white w-2/3'>
+                <Skill />
+                <Education />
+                <Certification />
+              </div>
+              <div className='bg-white w-full'>
+                <WorkHistory />
+              </div>
+            </div>
+        </div>
       {/* <TransformWrapper>
         <Controls />
         <TransformComponent> */}
-          <div className='bg-primarygray h-auto rounded-md z-40 w-4/6 px-6 py-8'>
+          {/* <div className='bg-primarygray h-auto rounded-md z-40 w-3/6 px-6 py-8'> 
             <About />
             <div className='w-full flex gap-4 mt-4'>
               <div className='bg-white w-2/3'>
@@ -43,7 +56,7 @@ const Template = React.forwardRef((props, ref: any) => {
                 <WorkHistory />
               </div>
             </div>
-          </div>
+          </div> */}
         {/* </TransformComponent>
       </TransformWrapper> */}
     </div>

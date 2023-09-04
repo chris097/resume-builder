@@ -43,7 +43,7 @@ function ForgotPassword() {
         <div className=" fixed w-[50%] ">
           <img className=" h-screen object-cover w-full" src={sideImg} alt="Logo" />
         </div>
-        <div className=" w-[50%] mt-[15px] ml-[50%]">
+        <div className="w-[50%] bg-white h-screen pt-[15px] ml-[50%]">
           <div className="">
             <Link to={ROUTE_URL.LOGIN_URL}>
               <div className="ml-[24px]">

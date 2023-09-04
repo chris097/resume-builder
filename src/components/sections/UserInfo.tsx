@@ -77,16 +77,16 @@ const UserInfo = () => {
 
     return (
         <>
-            <form onSubmit={formik.handleSubmit}>
-                <div className='mt-3 flex w-full space-x-3'>
+            <form onSubmit={formik.handleSubmit} className='mt-10'>
+                <div className='mt-3 w-full space-y-3'>
                     <Input
                         container="w-full"
                         label="Full Name"
                         labelStyle="text-coregray text-xs font-normal"
                         handleClick=""
                         icon=""
-                        inputContainer="w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1"
-                        inputStyle="w-full h-full focus:outline-none bg-transparent text-basegray text-xs"
+                        inputContainer="w-full h-[42px] flex items-center bg-primarygray rounded mt-1"
+                        inputStyle="w-full h-full border border-[#E4E7EB] px-2 focus:outline-none bg-white text-basegray text-xs"
                         input={{
                             type: "text",
                             placeholder: "Christian Chiemela",
@@ -99,8 +99,8 @@ const UserInfo = () => {
                         labelStyle="text-coregray text-xs font-normal"
                         handleClick=""
                         icon=""
-                        inputContainer="w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1"
-                        inputStyle="w-full h-full focus:outline-none bg-transparent text-basegray text-xs"
+                        inputContainer="w-full h-[42px] flex items-center bg-primarygray rounded mt-1"
+                        inputStyle="w-full h-full px-2 focus:outline-none border border-[#E4E7EB] bg-white text-basegray text-xs"
                         input={{
                             type: "text",
                             placeholder: "chrisfidel@gmail.com",
@@ -108,15 +108,15 @@ const UserInfo = () => {
                         }}
                     />
                 </div>
-                <div className='mt-3 flex w-full space-x-3'>
+                <div className='mt-3 w-full space-y-3'>
                     <Input
                         container="w-full"
                         label="Phone No."
                         labelStyle="text-coregray text-xs font-normal"
                         handleClick=""
                         icon=""
-                        inputContainer="w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1"
-                        inputStyle="w-full h-full focus:outline-none bg-transparent text-basegray text-xs"
+                        inputContainer="w-full h-[42px] flex items-center bg-primarygray rounded mt-1"
+                        inputStyle="w-full h-full px-2 focus:outline-none border border-[#E4E7EB] bg-white text-basegray text-xs"
                         input={{
                             type: "text",
                              placeholder: "+2347015362583",
@@ -129,8 +129,8 @@ const UserInfo = () => {
                         labelStyle="text-coregray text-xs font-normal"
                         handleClick=""
                         icon=""
-                        inputContainer="w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1"
-                        inputStyle="w-full h-full focus:outline-none bg-transparent text-basegray text-xs"
+                        inputContainer="w-full h-[42px] flex items-center bg-primarygray rounded mt-1"
+                        inputStyle="w-full h-full px-2 focus:outline-none border border-[#E4E7EB] bg-white text-basegray text-xs"
                         input={{
                             type: "text",
                             placeholder: "https://my-portfolio.com",
@@ -138,15 +138,15 @@ const UserInfo = () => {
                         }}
                     />
                 </div>
-                <div className='mt-3 flex w-full space-x-3'>
+                <div className='mt-3 w-full space-y-3'>
                     <Input
                         container="w-full"
                         label="Address"
                         labelStyle="text-coregray text-xs font-normal"
                         handleClick=""
                         icon=""
-                        inputContainer="w-full h-[32px] flex items-center bg-primarygray rounded px-3 mt-1"
-                        inputStyle="w-full h-full focus:outline-none bg-transparent text-basegray text-xs"
+                        inputContainer="w-full h-[32px] flex items-center bg-primarygray rounded mt-1"
+                        inputStyle="w-full h-full px-2 focus:outline-none border border-[#E4E7EB] bg-white text-basegray text-xs"
                         input={{
                             type: "text",
                             placeholder: "10 My Address, Lagos State, Nigeria",
@@ -161,14 +161,14 @@ const UserInfo = () => {
                         name='bio'
                         placeholder='- About yourself'
                         value={formik.values.bio}
-                        className="w-full h-32 flex items-center px-3 py-2 outline-none text-basegray text-xs bg-primarygray rounded mt-1"
+                        className="w-full h-32 flex items-center px-3 py-2 outline-none border border-[#E4E7EB] text-basegray text-xs bg-white rounded mt-1"
                     />
                 </div>
                 <button
-                    className="bg-primarygray hover:bg-black/5 text-xs font-opensans w-full py-3 mt-10"
+                    className="bg-corered hover:bg-black/5 text-xs text-white font-opensans mx-auto py-3 w-full mt-10"
                     type="submit"
                 >
-                    {loading ? "Loading..." : isData === 0 ? "Submit" : "Update"}
+                    {loading ? "Loading..." : isData === 0 ? "Next" : "Update"}
                 </button>
             </form>
         </>

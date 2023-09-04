@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import routes from "./routes";
 import { NavProvider } from "./context/dashboardContext";
 import { AuthProvider } from "./context/authContext";
+import logo from "./public/images/cev.png";
 import "./App.css";
+import Loader from "./components/Loading/Loader";
 
 function App() {
   const privateRoutes = routes.privateRoutes.map(({ path, element: Component }) => <Route key={path} path={path} element={<Component />} />);
@@ -13,7 +15,7 @@ function App() {
   return (
     <AuthProvider>
       <NavProvider>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader />}>
           <Toaster position="top-center" />
           <Router>
             <Routes>

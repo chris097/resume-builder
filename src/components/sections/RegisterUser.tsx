@@ -40,10 +40,11 @@ const RegisterUser = () => {
             setIsLoading(true)
             const payload: object = { email: values.email, password: values.password };
             const responses = await register(payload);
-            if (responses.isVerified === false) {
+            if (!responses) return setIsLoading(false);
+            if (responses.data.isVerified === false && responses.status === 201) {
                 setAuthUser(responses.data.token);
                 toast.success(responses.message);
-                navigate(ROUTE_URL.RESUME_URL);
+                navigate(ROUTE_URL.VERIFICATION);
                 setIsLoading(false);
             } else {
                 toast.error(responses.message);
@@ -92,7 +93,7 @@ const RegisterUser = () => {
                 <div className=" mt-5">
                     <Input
                         container="w-[81%] mt-[14px]"
-                        label="Confirm New Password                                                                    "
+                        label="Confirm Password                                                                    "
                         labelStyle="text-coregray text-base font-normal"
                         handleClick={() => setShowConfirmPassword(!showConfirmPassword)}
                         icon={showConfirmPassword ? <HidePassword /> : <ShowPassword />}
