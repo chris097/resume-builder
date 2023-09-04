@@ -16,7 +16,7 @@ function App() {
     <AuthProvider>
       <NavProvider>
         <Suspense fallback={<Loader />}>
-          <Toaster position="top-center" />
+          <Toaster position="top-right" containerClassName="text-sm" />
           <Router>
             <Routes>
               {privateRoutes}

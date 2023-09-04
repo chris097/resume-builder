@@ -4,7 +4,7 @@ import { fetchApi } from "./api/fetchApi";
 const { REACT_APP_BACKEND_URL } = process.env;
 
 const useQueryApi = (
-  key: string[],
+  key: string,
   payload: string
 ) => {
   const { data, isLoading } = useQuery({queryKey: [key],
