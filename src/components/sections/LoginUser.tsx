@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { loginSchema } from "../../validator";
 import { useAuth } from "../../context/authContext";
@@ -33,15 +33,23 @@ const LoginUser = () => {
     validationSchema: loginSchema,
     onSubmit: async (values) => {
       setIsLoading(true);
+      toast.loading("Authenticating user!");
       const responses = await login(values);
-      if (!responses) return setIsLoading(false);
+      if (!responses) {
+        setIsLoading(false)
+        toast.error(responses.message);
+        if (isLoading === false) toast.dismiss();
+      };
       if (responses.status === 400) {
+        if (isLoading === false) toast.dismiss();
         toast.error(responses.message);
         setIsLoading(false);
       } else if (responses.status === 201 && responses.data.isVerified === false) {
+        if (isLoading === false) toast.dismiss();
         toast.error("Account not verified!");
         setIsLoading(false);
       } else {
+        if (isLoading === false) toast.dismiss();
         setAuthUser(responses.data.token);
         toast.success(responses.message);
         setIsLoading(false);
@@ -92,7 +100,7 @@ const LoginUser = () => {
           <div className="text-[#0073E6] mt-4 text-[16px] w-[81%] font-opensans font-normal flex justify-end ">Forgot password?</div>
         </Link>
         <div className="mt-10">
-          <Button height="h-12" width="w-[81%]" bg="bg-corered" name={isLoading ? "Loading..." : "Login"} color="text-white" type="submit" />
+          <Button height="h-12" width="w-[81%]" bg="bg-corered" name="Login" color="text-white" type="submit" />
         </div>
       </form>
     </div>

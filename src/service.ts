@@ -11,6 +11,14 @@ export const updateUserInfo = (payload: object, id:string) => {
     const professionSummary = `${REACT_APP_BACKEND_URL}/${apiUrls.USER_INFO_ID(id)}`
     return mutationApi(professionSummary, apiUrls.PATCH, payload)
 };
+export const createUserExperience = (payload: object) => {
+    const professionSummary = `${REACT_APP_BACKEND_URL}/${apiUrls.USER_EXPERIENCE_URL}`
+    return mutationApi(professionSummary, apiUrls.POST, payload)
+};
+export const updateUserExperience = (payload: object, id:string) => {
+    const professionSummary = `${REACT_APP_BACKEND_URL}/${apiUrls.USER_EXPERIENCE_URL_ID(id)}`
+    return mutationApi(professionSummary, apiUrls.PATCH, payload)
+};
 export const verifyOtp = (payload: object) => {
     const veriftOtpUrl = `${REACT_APP_BACKEND_URL}/${apiUrls.VERIFY_OTP}`;
     return mutationApi(veriftOtpUrl, apiUrls.POST, payload);

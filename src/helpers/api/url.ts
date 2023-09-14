@@ -4,6 +4,7 @@ interface ApiProps {
     PATCH: string
     USER_INFO: string
     USER_INFO_ID: (id: string) => void,
+    USER_EXPERIENCE_URL_ID: (id: string) => void,
     VERIFY_OTP: string,
     WORK_HISTORY: string
     TECHNICAL_SKILL: string
@@ -11,6 +12,7 @@ interface ApiProps {
     REGISTER_URL: string
     EDUCATION_URL: string
     FORGOT_PASSWORD_URL: string
+     USER_EXPERIENCE_URL: string
     RESET_PASSWORD: (id:string, token:string) => string;
 }
 
@@ -26,6 +28,8 @@ export const apiUrls:ApiProps = {
     LOGIN_URL: 'auth/login',
     REGISTER_URL: 'auth/register',
     EDUCATION_URL: 'user/education',
+    USER_EXPERIENCE_URL: 'user/user-experience',
+    USER_EXPERIENCE_URL_ID: (id) => `user/user-experience/${id}`,
     FORGOT_PASSWORD_URL: 'auth/forgot-password',
     RESET_PASSWORD: (id, token) => `auth/reset-password/${id}/${token}`
 }
