@@ -34,11 +34,6 @@ const About = () => {
                   <span>chrisfidel.international@gmail.com</span> |
                   <span>https://christianchiemela.vercel.app/</span>
                 </div>
-                {/* <div className='font-light flex font-sans text-sm gap-1.5 mt-0.5 text-basegray'>
-                  <span>+2347015362583</span> |
-                  <span>chrisfidel.international@gmail.com</span> |
-                  <span>https://christianchiemela.vercel.app/</span>
-                </div> */}
                 <div className='font-light text-sm text-basegray capitalize'></div>
               </div>
               <div className='mt-2'>

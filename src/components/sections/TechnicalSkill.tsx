@@ -5,19 +5,6 @@ import { GrStatusGood } from 'react-icons/gr';
 const TechnicalSkill = () => {
     return (
         <div>
-            {/* <Input
-                handleClick=""
-                icon=""
-                inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
-                inputStyle='w-full h-full bg-white border border-[#E4E7EB] px-3 focus:outline-none bg-transparent text-basegray text-xs'
-                labelStyle='text-coregray text-sm font-normal'
-                label='Skill 1'
-                container='w-full mt-3'
-                input={{
-                    type: "text",
-                    placeholder: "Add atleast 5 skills eg: React.JS"
-                }}
-            /> */}
             <div className='mt-7'>
                 <label className='text-coregray text-sm font-normal'>Skill 1</label>
                 <div className='w-full h-[42px] flex items-center bg-white border border-[#E4E7EB] px-1 pr-3 focus:outline-none bg-transparent text-basegray text-sm mt-1'>

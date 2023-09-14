@@ -1,131 +1,86 @@
 import React, { useState } from 'react';
 import Input from '../input';
+import { useFormik } from 'formik';
+import { createUserExperience } from '../../service';
+import toast from 'react-hot-toast';
+import { CONSTANT_TEXT } from '../../constant';
+import { apiUrls } from '../../helpers/api/url';
+import useQueryApi from '../../helpers/useQuery';
+import ExperienceOne from './UserExperience/ExperienceOne';
+import ExperienceTwo from './UserExperience/ExperienceTwo';
+
+interface FormikProps {
+    job_title: string
+    company: string
+    country: string
+    description: string
+    start_date: string
+    end_date: string
+    start_month: string
+    end_month: string
+    start_year: string
+    end_year: string
+};
+
+const months: { id: number, month: string }[] = [
+    { id: 1, month: "January" },
+    { id: 2, month: "Feburary" },
+    { id: 3, month: "March" },
+    { id: 4, month: "April" },
+    { id: 5, month: "May" },
+    { id: 6, month: "June" },
+    { id: 7, month: "July" },
+    { id: 8, month: "August" },
+    { id: 9, month: "September" },
+    { id: 10, month: "October" },
+    { id: 11, month: "November" },
+    { id: 12, month: "December" },
+];
+
+const years: { id: number, year: string }[] = [
+    { id: 1, year: "2023" },
+    { id: 2, year: "2022" },
+    { id: 3, year: "2021" },
+    { id: 4, year: "2020" },
+    { id: 5, year: "2019" },
+    { id: 6, year: "2018" },
+    { id: 7, year: "2017" },
+    { id: 8, year: "2016" },
+    { id: 9, year: "2017" },
+    { id: 10, year: "2016" },
+    { id: 11, year: "2015" },
+    { id: 12, year: "2014" },
+];
+
+
 
 const UserExperience = () => {
 
-    const [current, setCurrentWork] = useState<boolean>(true);
+    const [isLoading, setLoading] = useState<boolean>(false);
 
-console.log(current)
+    const { data } = useQueryApi(CONSTANT_TEXT.GET_USER_EXPERIENCE, apiUrls.USER_EXPERIENCE_URL);
+
+    const id = data?.data[0]?._id;
+    const ids = data?.data[1]?._id
+
     return (
         <div>
-            <div className='mt-10'>
-                <Input
-                    handleClick=""
-                    icon=""
-                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
-                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
-                    labelStyle='text-coregray text-xs font-normal'
-                    label='Company'
-                    container='w-full'
-                    input={{
-                        type: "text",
-                        placeholder: "Yep, Nigeria"
-                    }}
-                />
-                <Input
-                    handleClick=""
-                    icon=""
-                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
-                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
-                    labelStyle='text-coregray text-xs font-normal'
-                    label='Role'
-                    container='w-full'
-                    input={{
-                        type: "text",
-                        placeholder: "Frontend Developer"
-                    }}
-                />
-            </div>
-            <div className='mt-3 flex'>
-                <Input
-                    handleClick=""
-                    icon=""
-                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
-                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
-                    labelStyle='text-coregray text-xs font-normal'
-                    label='Start Month'
-                    container='w-full'
-                    input={{
-                        type: "text",
-                        placeholder: "March"
-                    }}
-                />
-              <Input
-                    handleClick=""
-                    icon=""
-                    inputContainer='w-full h-[42px] flex gap-3 items-center bg-primarygray rounded mt-1'
-                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
-                    labelStyle='text-coregray text-xs font-normal ml-3'
-                    label='Start Year'
-                    container='w-full space-x-3'
-                    input={{
-                        type: "text",
-                        placeholder: "2022"
-                    }}
-                />
-            </div>
-            {current && <div className='mt-3 flex'>
-                <Input
-                    handleClick=""
-                    icon=""
-                    inputContainer='w-full h-[42px] flex items-center bg-primarygray rounded mt-1'
-                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
-                    labelStyle='text-coregray text-xs font-normal'
-                    label='End Month'
-                    container='w-full'
-                    input={{
-                        type: "text",
-                        placeholder: "April"
-                    }}
-                />
-                {current && <Input
-                    handleClick=""
-                    icon=""
-                    inputContainer='w-full h-[42px] flex gap-3 items-center bg-primarygray rounded mt-1'
-                    inputStyle='w-full h-full px-3 focus:outline-none border border-[#E4E7EB] bg-white bg-transparent text-basegray text-xs'
-                    labelStyle='text-coregray text-xs font-normal ml-3'
-                    label='End Year'
-                    container='w-full space-x-3'
-                    input={{
-                        type: "text",
-                        placeholder: "2023"
-                    }}
-                />}
-            </div>}
-            <div className='mt-3 w-full'>
-                <label className="text-xs text-coregray">Description</label>
-                <textarea
-                    // onChange={formik.handleChange}
-                    name='description'
-                    // value={formik.values.bio}
-                    className="w-full h-28 flex items-center border border-[#E4E7EB] bg-white  px-3 py-2 outline-none text-basegray text-xs rounded mt-1"
-                />
-            </div>
-            <div className='flex items-center mt-2 space-x-2'>
-                <Input
-                    handleClick=""
-                    icon=""
-                    inputContainer=''
-                    inputStyle=''
-                    labelStyle='text-xs text-coregray'
-                    label=''
-                    container=''
-                    input={{
-                        type: "checkbox",
-                        placeholder: "April 2023",
-                        name: 'current',
-                        // value: !current,
-                        onChange: () => setCurrentWork(!current)
-                    }}
-                />
-                <p className='text-[10px] text-coregray'>Currently working</p>
-            </div>
-            <button
-                className="bg-corered text-white hover:bg-black/5 text-sm font-opensans w-full py-3 mt-10"
-                type="submit"
-            >
-                Next
-            </button>
+            <ExperienceOne
+                data={data}
+                months={months}
+                years={years}
+                isLoading={isLoading}
+                setLoading={setLoading}
+                id={id}
+            />   
+            <ExperienceTwo
+                data={data}
+                months={months}
+                years={years}
+                isLoading={isLoading}
+                setLoading={setLoading}
+                id={ids}
+            />   
         </div>
     );
 };

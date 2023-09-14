@@ -166,8 +166,7 @@ const UserInfo = ({handleClick}: any) => {
                 </div>
                 <button
                     className="bg-corered text-xs text-white font-opensans mx-auto py-3 w-full mt-10"
-                    // type="submit"
-                    onClick={handleClick}
+                    type="submit"
                 >
                     {loading ? "Loading..." : isData === 0 ? "Next" : "Update"}
                 </button>
