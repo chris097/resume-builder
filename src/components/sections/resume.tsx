@@ -58,7 +58,6 @@ const ResumeSection = () => {
     return setCurrentIndex(num1), setCurrentTab(num2)
   };
 
-  console.log(currentIndex)
 
   return (
     <>
