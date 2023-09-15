@@ -12,7 +12,8 @@ interface ApiProps {
     REGISTER_URL: string
     EDUCATION_URL: string
     FORGOT_PASSWORD_URL: string
-     USER_EXPERIENCE_URL: string
+    USER_EXPERIENCE_URL: string
+    USER_CERTIFICATE_URL: string
     RESET_PASSWORD: (id:string, token:string) => string;
 }
 
@@ -29,6 +30,7 @@ export const apiUrls:ApiProps = {
     REGISTER_URL: 'auth/register',
     EDUCATION_URL: 'user/education',
     USER_EXPERIENCE_URL: 'user/user-experience',
+    USER_CERTIFICATE_URL: 'user/certificate',
     USER_EXPERIENCE_URL_ID: (id) => `user/user-experience/${id}`,
     FORGOT_PASSWORD_URL: 'auth/forgot-password',
     RESET_PASSWORD: (id, token) => `auth/reset-password/${id}/${token}`

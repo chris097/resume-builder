@@ -1,19 +1,22 @@
+import { CONSTANT_TEXT } from '../../constant';
+import { apiUrls } from '../../helpers/api/url';
 import useQueryApi from '../../helpers/useQuery'
 import dateFormat from '../dateFormat';
 import { SkeletonWorkHistory } from '../skeletonLoader';
 
 const Education = () => {
-  // const { data, isLoading } = useQueryApi(['education'], 'user/education');
-  // const educations = data?.data;
+  const { data, isLoading } = useQueryApi(CONSTANT_TEXT.GET_USER_EDUCATION, apiUrls.EDUCATION_URL);
   
   return (
     <div className='px-6 py-6 w-full bg-white rounded-md h-auto font-poppins'>
         <div className='font-poppins text-lg mb-3'>Education</div>
-        <div className='flex flex-col space-y-2 text-secondarygray font-sans text-sm'>
-          <div className='text-secondarygray text-sm capitalize'>Diploma in Mechactronic Engineering</div>
-          <div className='text-secondarygray text-sm capitalize'>Federal Polytechnic, Nekede</div>
-          <div className='text-secondarygray text-sm font-light'>2014 - 2016</div>
+      {isLoading ? <SkeletonWorkHistory /> : data?.data?.map((edu: {degree: string, program: string, school_name: string, start_date: string, end_date: string}) => (
+          <div className='flex flex-col space-y-2 text-secondarygray font-sans text-sm'>
+          <div className='text-secondarygray text-sm capitalize'>{edu.degree} in {edu.program}</div>
+          <div className='text-secondarygray text-sm capitalize'>{edu.school_name}</div>
+          <div className='text-secondarygray text-sm font-light'>{edu.start_date} - {edu.end_date ?? "till date"}</div>
         </div>
+        ))}
     </div>
   )
 }

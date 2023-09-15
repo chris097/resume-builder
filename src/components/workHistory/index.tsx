@@ -2,7 +2,6 @@ import React from 'react'
 import { CONSTANT_TEXT } from '../../constant';
 import { apiUrls } from '../../helpers/api/url';
 import useQueryApi from '../../helpers/useQuery';
-import dateFormat from '../dateFormat';
 import { SkeletonWorkHistory } from '../skeletonLoader';
 
 const WorkHistory = () => {
