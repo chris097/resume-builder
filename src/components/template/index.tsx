@@ -8,25 +8,6 @@ import ResumeSection from '../sections/resume';
 import Skill from '../skills';
 import WorkHistory from '../workHistory';
 import About from './about';
-import FinalResume from '../FinalResume';
-
-// const Cv = () => {
-//   return (
-//     <div className='w-full pl-[45%] pr-10 mb-5'>
-//       <About />
-//       <div className='w-full flex gap-1 mt-1'>
-//         <div className='bg-white w-2/3'>
-//           <Skill />
-//           <Education />
-//           <Certification />
-//         </div>
-//         <div className='bg-white w-full'>
-//           <WorkHistory />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 
 
 const Template = React.forwardRef((props, ref: any) => {

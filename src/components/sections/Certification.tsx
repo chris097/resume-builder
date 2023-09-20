@@ -8,13 +8,22 @@ import { useQueryClient } from '@tanstack/react-query';
 import { apiUrls } from '../../helpers/api/url';
 import { CONSTANT_TEXT } from '../../constant';
 import useQueryApi from '../../helpers/useQuery';
+import NextButton from '../Button/NextButton';
+import { Link } from 'react-router-dom';
+import { publicRoutes } from '../../routes/publicRoutes';
+import { ROUTE_URL } from '../../routes/url';
 
 interface FormikProps {
     title: string
     title_url: string
 }
 
-const Certification = () => {
+const Certification = ({
+    setCurrentIndex,
+    setCurrentTab,
+    currentIndex,
+    currentTab
+}:{setCurrentIndex: Function, setCurrentTab: Function, currentIndex: number, currentTab: number}) => {
 
     const [loading, setLoading] = useState<boolean>(false);
     const queryClient = useQueryClient();
@@ -46,6 +55,7 @@ const Certification = () => {
     })
 
     return (
+        <>
         <form onSubmit={formik.handleSubmit} className='mt-7'>
             <Input
                 handleClick=""
@@ -82,6 +92,10 @@ const Certification = () => {
                      {loading ? "Loading..." : "Next"}
                 </button>
         </form>
+            <div className='text-corered text-sm font-poppins mt-7 flex justify-end cursor-pointer'>
+                <Link to={ROUTE_URL.COMPLETE_RESUME_URL}>Finish</Link>
+        </div>
+        </>
     );
 };
 

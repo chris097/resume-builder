@@ -1,8 +1,14 @@
 import React from 'react';
 import Input from '../input';
 import { GrStatusGood } from 'react-icons/gr';
+import NextButton from '../Button/NextButton';
 
-const TechnicalSkill = () => {
+const TechnicalSkill = ({
+    setCurrentIndex,
+    setCurrentTab,
+    currentIndex,
+    currentTab
+}:{setCurrentIndex: Function, setCurrentTab: Function, currentIndex: number, currentTab: number}) => {
     return (
         <div>
             <div className='mt-7'>
@@ -23,8 +29,15 @@ const TechnicalSkill = () => {
                     className="bg-corered hover:bg-black/5 text-sm text-white font-opensans mx-auto py-3 w-full mt-10"
                     type="submit"
                 >
-                     Next
-                </button>
+                     Send
+            </button>
+            <NextButton
+                setCurrentIndex={setCurrentIndex}
+                setCurrentTab={setCurrentTab}
+                currentIndex={currentIndex}
+                currentTab={currentTab}
+                name='Next'
+            />
         </div>
     );
 };

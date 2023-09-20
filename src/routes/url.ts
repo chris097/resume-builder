@@ -11,6 +11,7 @@ type RouteProps = {
   TECHNICAL_SKILL_URL: string;
   FORGOT_PASSWORD: string;
   VERIFICATION: string;
+  COMPLETE_RESUME_URL: string
   RESET_PASSWORD: (id:string, token:string) => string;
 };
 
@@ -22,6 +23,7 @@ export const ROUTE_URL: RouteProps = {
   VERIFY_OTP_URL: (email) => `/verify-otp/${email}`,
   FORGOT_PASSWORD: "/forgot-password",
   RESUME_URL: "/resume",
+  COMPLETE_RESUME_URL: "/resume-complete",
   PROFESSION_SUMMARY_URL: "/resume/summary",
   WORK_HISTORY_URL: "/resume/history",
   EDUCATION_URL: "/resume/education",

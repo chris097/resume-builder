@@ -7,6 +7,7 @@ import { apiUrls } from '../../helpers/api/url';
 import { CONSTANT_TEXT } from '../../constant';
 import useQueryApi from '../../helpers/useQuery';
 import { useQueryClient } from '@tanstack/react-query';
+import NextButton from '../Button/NextButton';
 
 interface IProps {
     school_name: string
@@ -16,7 +17,12 @@ interface IProps {
     end_date: string
 }
 
-const Education = () => {
+const Education = ({
+    setCurrentIndex,
+    setCurrentTab,
+    currentIndex,
+    currentTab
+}:{setCurrentIndex: Function, setCurrentTab: Function, currentIndex: number, currentTab: number}) => {
 
     const [current, setCurrentWork] = useState<boolean>(true);
     const [loading, setLoading] = useState<boolean>(false);
@@ -59,6 +65,7 @@ const Education = () => {
 
 
     return (
+        <>
         <form onSubmit={formik.handleSubmit} className='mt-10'>
             <Input
                 handleClick=""
@@ -159,6 +166,14 @@ const Education = () => {
                 {loading ? "Loading..." : "Next"}
             </button>
         </form>
+        <NextButton
+                setCurrentIndex={setCurrentIndex}
+                setCurrentTab={setCurrentTab}
+                currentIndex={currentIndex}
+                currentTab={currentTab}
+                name='Next'
+            />
+        </>
     );
 };
 

@@ -8,6 +8,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { apiUrls } from '../../helpers/api/url';
 import useQueryApi from '../../helpers/useQuery';
 import { CONSTANT_TEXT } from '../../constant';
+import NextButton from '../Button/NextButton';
 
 interface FormikProps {
     fullname: string
@@ -18,7 +19,12 @@ interface FormikProps {
     bio: string
 };
 
-const UserInfo = ({handleClick}: any) => {
+const UserInfo = ({
+    setCurrentIndex,
+    setCurrentTab,
+    currentIndex,
+    currentTab
+}:{setCurrentIndex: Function, setCurrentTab: Function, currentIndex: number, currentTab: number}) => {
 
     const [loading, setLoading] = useState<boolean>(false);
     const queryClient = useQueryClient();
@@ -77,7 +83,7 @@ const UserInfo = ({handleClick}: any) => {
 
     return (
         <>
-            <form onSubmit={formik.handleSubmit} className='mt-10'>
+            <form onSubmit={formik.handleSubmit} className='mt-4'>
                 <div className='mt-3 w-full space-y-3'>
                     <Input
                         container="w-full"
@@ -119,7 +125,7 @@ const UserInfo = ({handleClick}: any) => {
                         inputStyle="w-full h-full px-2 focus:outline-none border border-[#E4E7EB] bg-white text-basegray text-xs"
                         input={{
                             type: "text",
-                             placeholder: "+2347015362583",
+                            placeholder: "+2347015362583",
                             ...formik.getFieldProps("phone")
                         }}
                     />
@@ -171,6 +177,13 @@ const UserInfo = ({handleClick}: any) => {
                     {loading ? "Loading..." : isData === 0 ? "Next" : "Update"}
                 </button>
             </form>
+            <NextButton
+                setCurrentIndex={setCurrentIndex}
+                setCurrentTab={setCurrentTab}
+                currentIndex={currentIndex}
+                currentTab={currentTab}
+                name='Next'
+            />
         </>
     );
 };

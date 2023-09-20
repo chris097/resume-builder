@@ -38,15 +38,22 @@ const RegisterUser = () => {
         validationSchema: registerSchema,
         onSubmit: async (values) => {
             setIsLoading(true)
+            toast.loading("Authenticating user!");
             const payload: object = { email: values.email, password: values.password };
             const responses = await register(payload);
-            if (!responses) return setIsLoading(false);
+            if (!responses.status) {
+                if (isLoading === false) toast.dismiss();
+                setIsLoading(false)
+                toast.error(responses.message);
+            };
             if (responses.data.isVerified === false && responses.status === 201) {
+                if (isLoading === false) toast.dismiss();
                 setAuthUser(responses.data.token);
                 toast.success(responses.message);
                 navigate(ROUTE_URL.VERIFICATION);
                 setIsLoading(false);
             } else {
+                if (isLoading === false) toast.dismiss();
                 toast.error(responses.message);
                 setIsLoading(false);
             }

@@ -8,6 +8,7 @@ import { apiUrls } from '../../helpers/api/url';
 import useQueryApi from '../../helpers/useQuery';
 import ExperienceOne from './UserExperience/ExperienceOne';
 import ExperienceTwo from './UserExperience/ExperienceTwo';
+import NextButton from '../Button/NextButton';
 
 interface FormikProps {
     job_title: string
@@ -54,7 +55,12 @@ const years: { id: number, year: string }[] = [
 
 
 
-const UserExperience = () => {
+const UserExperience = ({
+    setCurrentIndex,
+    setCurrentTab,
+    currentIndex,
+    currentTab
+}: {setCurrentIndex: Function, setCurrentTab: Function, currentIndex: number, currentTab: number}) => {
 
     const [isLoading, setLoading] = useState<boolean>(false);
 
@@ -72,7 +78,7 @@ const UserExperience = () => {
                 isLoading={isLoading}
                 setLoading={setLoading}
                 id={id}
-            />   
+            />
             <ExperienceTwo
                 data={data}
                 months={months}
@@ -80,7 +86,16 @@ const UserExperience = () => {
                 isLoading={isLoading}
                 setLoading={setLoading}
                 id={ids}
-            />   
+            />
+            <p className='mb-28'>
+                <NextButton
+                    setCurrentIndex={setCurrentIndex}
+                    setCurrentTab={setCurrentTab}
+                    currentIndex={currentIndex}
+                    currentTab={currentTab}
+                    name='Next'
+                />
+            </p>
         </div>
     );
 };

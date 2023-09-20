@@ -35,7 +35,7 @@ const Home = () => {
           <div>
             <Logo width='122' height='42' />
           </div>
-          <div className='flex gap-12 text-md font-poppins text-simpleblack'>
+          <div className='md:flex gap-12 hidden text-md font-poppins text-simpleblack'>
             <div className='text-corered cursor-pointer'>Home</div>
             <div className='cursor-pointer hover:text-corered'>Template</div>
             <div className='cursor-pointer hover:text-corered'>Jobs</div>
@@ -53,7 +53,7 @@ const Home = () => {
         </div>
       </div>
       <span className={`absolute ${currentColor} -left-28 -top-28 rounded-full opacity-10 blur-3xl transition-all ease-in-out duration-700 aspect-square h-[400px] z-40 animate-pulse`} />
-      <div className='mt-[6.2%] w-[90%] mx-auto'>
+      <div className='md:pt-[6.2%] pt-[23%] w-[90%] mx-auto'>
         <div className='md:flex block justify-between gap-20 items-center md:h-[90vh] h-auto'>
           <div className='flex-1 md:w-1/2 w-full'>
             <Reveal>
@@ -102,7 +102,7 @@ const Home = () => {
         <Reveal>
           <h2 className='flex justify-center mt-24 text-[48px] text-corered font-poppins font-medium'>Features</h2>
         </Reveal>
-        <div className='flex justify-between mt-28 gap-24'>
+        <div className='md:flex block justify-between mt-28 gap-24'>
           <div className='flex-1'>
             <Reveal><p className='text-2xl font-medium text-primaryblack'>Templates</p></Reveal>
            <Reveal> <p className='text-[17px] text-simpleblack mt-3'>A variety of pre-designed and customizable resume templates catering to different industries, roles, and design preferences.</p></Reveal>
@@ -129,14 +129,14 @@ const Home = () => {
             </Reveal>
           </div>
         </div>
-        <div className='mt-52 h-[447px] relative'>
-          <div className='flex justify-between mr-14 ml-14 gap-14'>
+        <div className='mt-52 md:h-[447px] relative'>
+          <div className='md:flex block justify-between md:mr-14 md:ml-14 gap-14'>
             <div className='flex-1'>
-              <Reveal><p className='text-[60px] font-poppins font-medium leading-tight mt-7'>Join the <br /> ceVBuilder family</p></Reveal>
+              <Reveal><p className='md:text-[60px] text-[40px] font-poppins font-medium leading-tight mt-7'>Join the <br /> ceVBuilder family</p></Reveal>
              <Reveal> <p className='text-xl font-poppins text-simpleblack leading-9 mt-5 w-[85%]'>We're thrilled to welcome you to the ceVBuilder family, where your journey to crafting exceptional resumes begins!</p></Reveal>
               <button className='bg-corered text-white w-[51%] h-[56px] rounded-[8px] mt-6'>Join ceVBuilder</button>
              </div>
-            <div className='flex-1'>
+            <div className='flex-1 md:mr-0 mr-10 md:mt-0 mt-10 md:ml-0 ml-10'>
               <Reveal><img className='' src={laptop} alt="laptop" /></Reveal>
             </div>
          </div>
@@ -146,7 +146,7 @@ const Home = () => {
       <Reveal>
          <div className='mt-56 border-t py-16'>
         <div className='w-[90%] mx-auto'>
-          <div className='flex justify-between'>
+          <div className='md:flex block justify-between'>
             <div>
               <Logo width='180px' height='56px' />
               <p className='font-poppins text-lg mt-16'>Updates right to your Inbox</p>
@@ -167,7 +167,7 @@ const Home = () => {
               </div>
             </div>
             <div>
-              <div className='flex gap-14'>
+              <div className='flex md:flex-row flex-col md:justify-start md:mt-0 mt-10 justify-center gap-14'>
               <div>
                 <p className='font-poppins text-lg font-medium'>Our story</p>
               <p className='text-lg font-poppins text-[#404653] mt-3'>FAQ</p>
@@ -186,14 +186,14 @@ const Home = () => {
               <p className='text-lg font-poppins text-[#404653] mt-2'>Join ceVBuilder</p>
               </div>
               </div>
-              <div className='flex justify-center mt-14 gap-8 items-center'>
+              <div className='flex md:justify-center mt-14 gap-8 items-center'>
                 <BsFacebook color='#EB5757' size={28} />
                 <BsLinkedin color='#EB5757' size={24} />
                 <AiFillTwitterCircle color='#EB5757' size={32} />
               </div>
             </div>
           </div>
-          <div className='flex justify-center gap-6 text-primaryblack text-lg mt-32 font-medium items-center'>
+          <div className='flex justify-center gap-6 text-primaryblack md:text-lg text-sm mt-32 font-medium items-center'>
             <p>© ceVBuilder 2023</p>
             <p>Privacy policy</p>
             <p>Terms of use</p>

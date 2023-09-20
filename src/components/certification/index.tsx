@@ -12,8 +12,8 @@ const Certification = () => {
   return (
     <div className='px-6 relative bg-white rounded-md h-auto'>
       <div className='font-poppins text-lg mb-3'>Certification</div>
-      {data?.certificate?.map((cert:{title: string, title_url: string}) => (
-        <>
+      {data?.certificate?.map((cert:{title: string, title_url: string}, index:number) => (
+        <React.Fragment key={index}>
           <div className='flex items-center mb-2'>
             {/* <Cert /> */}
             <span className='text-secondarygray text-sm font-sans'>
@@ -30,7 +30,7 @@ const Certification = () => {
           </a>
             </span>
         </div>
-        </>
+        </React.Fragment>
       ))}
     
     </div>
