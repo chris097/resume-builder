@@ -41,6 +41,7 @@ const RegisterUser = () => {
             toast.loading("Authenticating user!");
             const payload: object = { email: values.email, password: values.password };
             const responses = await register(payload);
+            if (responses !== undefined) toast.loading("Authenticating user!");
             if (!responses.status) {
                 if (isLoading === false) toast.dismiss();
                 setIsLoading(false)
@@ -65,7 +66,7 @@ const RegisterUser = () => {
             <form onSubmit={formik.handleSubmit} className="w-[100%] mt-[55px]">
                 <div>
                     <Input
-                        container='w-[81%]'
+                        container='md:w-[81%]'
                         label='Email address'
                         labelStyle="text-coregray text-base font-normal"
                         handleClick=""
@@ -82,7 +83,7 @@ const RegisterUser = () => {
                 </div>
                 <div className="mt-5">
                     <Input
-                        container='w-[81%]'
+                        container='md:w-[81%]'
                         label="Password"
                         labelStyle="text-coregray text-base font-normal"
                         handleClick={() => setShowPassword(!showPassword)}
@@ -99,7 +100,7 @@ const RegisterUser = () => {
                 </div>
                 <div className=" mt-5">
                     <Input
-                        container="w-[81%] mt-[14px]"
+                        container="md:w-[81%] mt-[14px]"
                         label="Confirm Password                                                                    "
                         labelStyle="text-coregray text-base font-normal"
                         handleClick={() => setShowConfirmPassword(!showConfirmPassword)}
@@ -117,7 +118,7 @@ const RegisterUser = () => {
                 <div className="mt-14">
                     <Button
                         height="h-12"
-                        width="w-[81%]"
+                        width="md:w-[81%] w-full"
                         bg="bg-corered"
                         name={isLoading ? "Loading..." : "Register"}
                         color="text-white" type="submit"

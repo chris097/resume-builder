@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = (props) => {
             px-4
             ${props.width ?? "w-44"} 
             ${props.height ?? "h-16"} 
-            rounded md:block hidden`
+            rounded`
         }>
             {props.name ?? "Edit name"}
         </button>

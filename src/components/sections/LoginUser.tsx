@@ -63,7 +63,7 @@ const LoginUser = () => {
       <form onSubmit={formik.handleSubmit} className="w-[100%] mt-[55px]">
         <div>
           <Input
-            container="w-[81%]"
+            container="md:w-[81%]"
             label="Email address"
             labelStyle="text-coregray text-base font-normal"
             handleClick=""
@@ -80,7 +80,7 @@ const LoginUser = () => {
         </div>
         <div className="mt-5">
           <Input
-            container="w-[81%]"
+            container="md:w-[81%]"
             label="Password"
             labelStyle="text-coregray text-base font-normal"
             handleClick={() => setShowPassword(!showPassword)}
@@ -97,10 +97,10 @@ const LoginUser = () => {
         </div>
         <Link to={ROUTE_URL.FORGOT_PASSWORD}>
           {" "}
-          <div className="text-[#0073E6] mt-4 text-[16px] w-[81%] font-opensans font-normal flex justify-end ">Forgot password?</div>
+          <div className="text-[#0073E6] mt-4 text-[16px] md:w-[81%] font-opensans font-normal flex justify-end ">Forgot password?</div>
         </Link>
         <div className="mt-10">
-          <Button height="h-12" width="w-[81%]" bg="bg-corered" name="Login" color="text-white" type="submit" />
+          <Button height="h-12" width="md:w-[81%] w-full" bg="bg-corered" name="Login" color="text-white" type="submit" />
         </div>
       </form>
     </div>

@@ -40,10 +40,10 @@ function ForgotPassword() {
   return (
     <>
       <div className=" flex w-[100%] justify-between">
-        <div className=" fixed w-[50%] ">
+        <div className="fixed w-[50%] md:block hidden">
           <img className=" h-screen object-cover w-full" src={sideImg} alt="Logo" />
         </div>
-        <div className="w-[50%] bg-white h-screen pt-[15px] ml-[50%]">
+        <div className="md:w-[50%] bg-white h-screen pt-[15px] md:ml-[50%]">
           <div className="">
             <Link to={ROUTE_URL.LOGIN_URL}>
               <div className="ml-[24px]">
@@ -60,16 +60,16 @@ function ForgotPassword() {
               </div>
             </Link>
           </div>
-          <form onSubmit={formik.handleSubmit} className=" mt-[180px] ">
+          <form onSubmit={formik.handleSubmit} className="mt-[180px] w-[90%] mx-auto">
             <h1 className="text-[28px] mb-[11px] text-center text-[#000112]">Forgot Password</h1>
             <p className="text-[#666666] text-center text-opacity-80 text-[14px]">Enter the email address associated with your account</p>
             <Input
-              container=" ml-[91px] mt-[60px] w-[81%]"
+              container="md:ml-[91px] mt-[60px] md:w-[81%]"
               label="Email address"
               labelStyle="text-coregray text-base font-normal"
               handleClick=""
               icon=""
-              inputContainer="w-[89%] h-[56px] flex items-center rounded-[8px] border border-[#CED4DA] px-3 mt-1"
+              inputContainer="md:w-[89%] w-full h-[56px] flex items-center rounded-[8px] border border-[#CED4DA] px-3 mt-1"
               inputStyle="w-full h-full focus:outline-none text-basegray text-sm"
               input={{
                 type: "email",
@@ -77,11 +77,11 @@ function ForgotPassword() {
                 ...formik.getFieldProps("email"),
               }}
             />
-            <p className="text-xs text-corered ml-[91px] mt-1 font-opensans">{formik.errors.email && formik.touched.email ? formik.errors.email : null}</p>
-            <div className="mt-10 ml-[91px]">
+            <p className="text-xs text-corered md:ml-[91px] mt-1 font-opensans">{formik.errors.email && formik.touched.email ? formik.errors.email : null}</p>
+            <div className="mt-10 md:ml-[91px]">
               <button
                 type="submit"
-                className="h-12 w-[84%] rounded-[8px] text-center bg-corered text-white">
+                className="h-12 md:w-[84%] w-full rounded-[8px] text-center bg-corered text-white">
                 {isLoading ? "Loading..." : "Send"}
               </button>
             </div>
