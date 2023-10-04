@@ -23,6 +23,14 @@ export const createUserCertificate = (payload: object) => {
     const createCertificate = `${REACT_APP_BACKEND_URL}/${apiUrls.USER_CERTIFICATE_URL}`
     return mutationApi(createCertificate, apiUrls.POST, payload)
 };
+export const createUserTask = (payload:object) => {
+    const taskUrl = `${REACT_APP_BACKEND_URL}/${apiUrls.TECHNICAL_SKILL}`;
+    return mutationApi(taskUrl, apiUrls.POST, payload)
+}
+export const updateUserSkill = (payload: object, id: string) => {
+    const userSkillUrl = `${REACT_APP_BACKEND_URL}/${apiUrls.USER_SKILL_URL_ID(id)}`;
+    return mutationApi(userSkillUrl, apiUrls.PATCH, payload);
+}
 export const updateUserExperience = (payload: object, id:string) => {
     const professionSummary = `${REACT_APP_BACKEND_URL}/${apiUrls.USER_EXPERIENCE_URL_ID(id)}`
     return mutationApi(professionSummary, apiUrls.PATCH, payload)

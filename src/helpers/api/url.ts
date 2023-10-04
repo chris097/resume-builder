@@ -5,6 +5,7 @@ interface ApiProps {
     USER_INFO: string
     USER_INFO_ID: (id: string) => void,
     USER_EXPERIENCE_URL_ID: (id: string) => void,
+   USER_SKILL_URL_ID: (id: string) => void,
     VERIFY_OTP: string,
     WORK_HISTORY: string
     TECHNICAL_SKILL: string
@@ -32,6 +33,7 @@ export const apiUrls:ApiProps = {
     USER_EXPERIENCE_URL: 'user/user-experience',
     USER_CERTIFICATE_URL: 'user/certificate',
     USER_EXPERIENCE_URL_ID: (id) => `user/user-experience/${id}`,
+    USER_SKILL_URL_ID: (id) => `user/skill/${id}`,
     FORGOT_PASSWORD_URL: 'auth/forgot-password',
     RESET_PASSWORD: (id, token) => `auth/reset-password/${id}/${token}`
 }

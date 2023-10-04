@@ -6,6 +6,8 @@ import { SkeletonWorkHistory } from '../skeletonLoader';
 
 const Education = () => {
   const { data, isLoading } = useQueryApi(CONSTANT_TEXT.GET_USER_EDUCATION, apiUrls.EDUCATION_URL);
+
+      console.log('data:',data)
   
   return (
     <div className='px-6 py-6 w-full bg-white rounded-md h-auto font-poppins'>

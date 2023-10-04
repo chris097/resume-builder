@@ -21,6 +21,8 @@ const Home = () => {
   //state
   const [currentName, setCurrentName] = useState<string>(names[0]);
   const [currentColor, setCurrentColor] = useState<string>(colors[0]);
+  const [isNav, setIsNav] = useState<boolean>(false);
+  const [view, setView] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,7 +34,7 @@ const Home = () => {
 
   return (
     <>
-      <div className='fixed flex top-0 left-0 inset-0 bg-black/90 overflow-y-hidden justify-center items-center flex-col z-50'>
+      {isNav && <div className='fixed flex top-0 left-0 inset-0 bg-black/90 overflow-y-hidden justify-center items-center flex-col z-50'>
         {/* <div className='flex w-[90%] justify-end mt-10 text-white'><GrClose className='text-white' size={26} /></div> */}
         <div className='text-white'>
           <div className='flex flex-col justify-center items-center w-full gap-16 text-2xl font-poppins text-white'>
@@ -53,12 +55,12 @@ const Home = () => {
           </Link>
           </div>
         </div>
-      </div>
+      </div>}
     <section className='bg-white'>
       <div className='bg-white h-24 fixed w-full left-0 top-0 z-40 border-b border-[#E4E7EB]'>
         <div className='flex justify-between h-full w-[90%] mx-auto items-center'>
           <div>
-            <Logo width='122' height='42' />
+            {view === 0 && <Logo width='122' height='42' />}
           </div>
           <div className='md:flex gap-12 hidden text-md font-poppins text-simpleblack'>
             <div className='text-corered cursor-pointer'>Home</div>
@@ -77,7 +79,7 @@ const Home = () => {
             />
           </Link>
           </div>
-          <div className='md:hidden block'>
+          <div onClick={() => setIsNav(!isNav)} className='md:hidden block'>
             <FiMenu size={24} />
           </div>
         </div>

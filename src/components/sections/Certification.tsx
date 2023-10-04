@@ -45,6 +45,10 @@ const Certification = ({
                     queryKey: ["certificate"],
                     exact: true
                 })
+                queryClient.invalidateQueries({
+                    queryKey: ["all"],
+                    exact: true
+                })
                 setLoading(false);
                 toast.success(response.message);
             } else {

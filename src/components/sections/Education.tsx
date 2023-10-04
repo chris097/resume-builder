@@ -51,6 +51,10 @@ const Education = ({
                         queryKey: ["education"],
                         exact: true
                     })
+                    queryClient.invalidateQueries({
+                        queryKey: ["all"],
+                        exact: true
+                    })
                     setLoading(false);
                     toast.success(responses.message);
                 } else {

@@ -7,13 +7,14 @@ const useQueryApi = (
   key: string,
   payload: string
 ) => {
-  const { data, isLoading } = useQuery({queryKey: [key],
+  const { data, isLoading, isFetching } = useQuery({queryKey: [key],
     queryFn: () => fetchApi(`${REACT_APP_BACKEND_URL}/${payload}`),
     enabled: true
   })
     return {
       data,
-      isLoading
+      isLoading,
+      isFetching
     }
 }
 

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ROUTE_URL } from "../../routes/url";
 import LoginUser from "../../components/sections/LoginUser";
 import RegisterUser from "../../components/sections/RegisterUser";
+import Logo from "../../public/svgs/Logo";
 
 
 const authTabs: {name: string, tab: number}[] = [
@@ -24,7 +25,7 @@ const Login = () => {
       <div className=" md:w-[50%] w-full bg-white h-screen pt-[15px] md:ml-[50%]">
         <div className="w-[90%] mx-auto">
           <Link to={ROUTE_URL.HOME_URL}>
-            <div className="md:ml-[24px]">
+            <div className="md:ml-[24px] pt-[37px] md:block hidden">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M6.5625 14.0625H25.3125C25.5611 14.0625 25.7996 14.1613 25.9754 14.3371C26.1512 14.5129 26.25 14.7514 26.25 15C26.25 15.2486 26.1512 15.4871 25.9754 15.6629C25.7996 15.8387 25.5611 15.9375 25.3125 15.9375H6.5625C6.31386 15.9375 6.0754 15.8387 5.89959 15.6629C5.72377 15.4871 5.625 15.2486 5.625 15C5.625 14.7514 5.72377 14.5129 5.89959 14.3371C6.0754 14.1613 6.31386 14.0625 6.5625 14.0625Z"
@@ -36,8 +37,11 @@ const Login = () => {
                 />
               </svg>
             </div>
+            <div className="md:hidden block">
+               <Logo width="140px" height="100px" />
+           </div>
           </Link>
-          <div className="flex justify-between mt-[80px] text-[16px] text-[#000112] font-[500] font-opensans md:ml-[94px] md:w-[70%]">
+          <div className="flex justify-between mt-[50px] text-[16px] text-[#000112] font-[500] font-opensans md:ml-[94px] md:w-[70%]">
             {authTabs.map((tab) => (
               <div onClick={() => {
                 setActive(tab.tab)

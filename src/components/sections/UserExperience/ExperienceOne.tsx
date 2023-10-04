@@ -69,6 +69,10 @@ const ExperienceOne = ({ data, months, years, isLoading, setLoading, id }: IProp
                         queryKey: ["experience"],
                         exact: true
                     })
+                    queryClient.invalidateQueries({
+                        queryKey: ["all"],
+                        exact: true
+                    })
                     setLoading(false);
                     toast.success(responses.message);
                 } else {

@@ -59,8 +59,8 @@ const ResumeSection = () => {
   return (
     <>
       <div className="w-full relative">
-        <div className="fixed flex w-[45%] bg-primarygray overflow-auto">
-          <div className="w-[270px] bg-white h-screen overflow-auto pt-10">
+        <div className="fixed flex lg:w-[45%] w-full bg-primarygray overflow-auto">
+          <div className="lg:w-[270px] bg-white h-screen overflow-auto pt-10">
             {tabs.map((tab, index) => (
               <div
                 key={index}
@@ -68,35 +68,15 @@ const ResumeSection = () => {
                   setCurrentIndex(index);
                   setCurrentTab(tab.tab);
                 }}
-                className={`mt-5 ${currentTab === index + 1 ? "bg-corered/20 font-medium" : ""} 
-                px-10 cursor-pointer items-center gap-2 flex h-12 text-[#404653] text-sm w-full`}
+                className={`mt-5 ${currentTab === index + 1 ? "lg:bg-corered/20  font-medium" : ""} 
+                lg:px-10 pr-5 cursor-pointer items-center lg:gap-2 flex md:justify-start justify-center h-12 text-[#404653] text-sm w-[100px] lg:w-full`}
               >
-                {tab.icon}
-                {tab.name}
+                <div>{tab.icon}</div>
+                <div className="lg:block hidden">{tab.name}</div>
               </div>
             ))}
-            <p className="text-sm text-coregray px-10 font-poppins mt-24">Progress</p>
-            <div className="px-10 mt-1 flex items-center gap-2">
-              <div className="bg-[#D9D9D9] w-full h-3 rounded-full relative">
-                <span className={`bg-corered ${(tabs[currentIndex].tab === 1 && "w-[20%]") ||
-                  (tabs[currentIndex].tab === 2 && "w-[40%]") ||
-                  (tabs[currentIndex].tab === 3 && "w-[60%]") ||
-                  (tabs[currentIndex].tab === 4 && "w-[80%]") ||
-                  (tabs[currentIndex].tab === 5 && "w-full rounded-tr-full rounded-br-full")
-                  } h-3 z-50 transition-all ease-in-out duration-700 delay-500 rounded-tl-full rounded-bl-full absolute`} />
-              </div>
-              <span className="text-xs text-[#666666] transition-all ease-in-out duration-1000 delay-500">
-                {
-                  (tabs[currentIndex].tab === 1 && "20%") ||
-                  (tabs[currentIndex].tab === 2 && "40%") ||
-                  (tabs[currentIndex].tab === 3 && "60%") ||
-                  (tabs[currentIndex].tab === 4 && "80%") ||
-                  (tabs[currentIndex].tab === 5 && "100%")
-                }
-              </span>
-            </div>
           </div>
-          <div className="w-[60%] bg-primarygray px-8 h-screen overflow-auto">
+          <div className="lg:w-[60%] w-full bg-primarygray px-8 h-screen overflow-auto">
             {
               (tabs[currentIndex].tab === 1 && <UserInfo
                 setCurrentIndex={setCurrentIndex}

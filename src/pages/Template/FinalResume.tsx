@@ -36,21 +36,23 @@ const FinalResume = () => {
 
   return (
     <div className='mx-auto w-[94%]'>
-            <div className='flex justify-center'>
-                <div className='flex-1 mt-44'>
+            <div className='flex lg:justify-center'>
+                <div className='lg:flex-1 mt-44'>
                     <div className='flex items-center'>
-                        <h2 className='text-5xl text-black/90 font-poppins'>Congratulations!</h2>
+                        <h2 className='lg:text-5xl text-4xl text-black/90 font-poppins'>Congratulations!</h2>
                         <div className='-ml-10'><svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="32.5" cy="32.5" r="32.5" fill="#0073E6" fillOpacity="0.24" />
                         </svg>
                         </div>
                     </div>
-                    <p className='text-2xl w-[90%] leading-10'>Your resume is awesome ready for download. Get it in any format of your choice.</p>
-                    <button onClick={handleDownloadPDF} className='bg-corered text-white p-4 gap-3 justify-center rounded mt-7 w-[50%] flex items-center'>
+                    <p className='lg:text-2xl text-xl w-[90%] leading-10'>Your resume is awesome ready for download. Get it in any format of your choice.</p>
+                    <button onClick={handleDownloadPDF} className='bg-corered text-white p-4 gap-3 justify-center rounded mt-7 lg:w-[50%] w-full flex items-center'>
                         <span>Download</span> <FiDownload size={16} />
                     </button>
-                </div>
-                <div ref={contentRef} className='flex-1'>
+        </div>
+        <div>
+    </div>
+                <div ref={contentRef} className='lg:flex-1 lg:block hidden'>
                     <Resume />
                 </div>
             </div>
