@@ -30,11 +30,11 @@ const VerifyOtp = () => {
   };
 
   return (
-    <div className=" flex w-[100%] justify-between font-opensans">
-      <div className=" fixed w-[50%] ">
+    <div className=" flex w-[100%] justify-between font-opensans overflow-hidden">
+      <div className="md:block hidden fixed w-[50%] ">
         <img className=" h-screen object-cover w-full" src={sideImg} alt="Logo" />
       </div>
-      <div className=" w-[50%] pt-[15px] h-screen bg-white ml-[50%]">
+      <div className="w-full md:w-[50%] pt-[15px] h-screen bg-white md:ml-[50%]">
         <div className="">
           <Link to={ROUTE_URL.LOGIN_URL}>
             <div className="ml-[24px]">

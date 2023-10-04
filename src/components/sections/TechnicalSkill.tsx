@@ -1,32 +1,121 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from '../input';
 import { GrStatusGood } from 'react-icons/gr';
+import NextButton from '../Button/NextButton';
+import { async } from 'q';
+import { createUserTask, updateUserSkill } from '../../service';
+import toast from 'react-hot-toast';
+import { useQueryClient } from '@tanstack/react-query';
+import useQueryApi from '../../helpers/useQuery';
+import { apiUrls } from '../../helpers/api/url';
 
-const TechnicalSkill = () => {
-    return (
-        <div>
-            <div className='mt-7'>
-                <label className='text-coregray text-sm font-normal'>Skill 1</label>
-                <div className='w-full h-[42px] flex items-center bg-white border border-[#E4E7EB] px-1 pr-3 focus:outline-none bg-transparent text-basegray text-sm mt-1'>
-                    <select className='w-full appearance-none h-full outline-none'>
-                        <option>NextJs</option>
-                        <option>NextJs</option>
-                        <option>NextJs</option>
-                    </select>
-                    <span><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M10.5893 12.2559C10.2638 12.5813 9.73617 12.5813 9.41075 12.2559L5.24408 8.08922C4.91864 7.76378 4.91864 7.23614 5.24408 6.9107C5.56952 6.58527 6.09715 6.58527 6.42259 6.9107L10 10.4881L13.5774 6.9107C13.9028 6.58527 14.4305 6.58527 14.7559 6.9107C15.0813 7.23614 15.0813 7.76378 14.7559 8.08922L10.5893 12.2559Z" fill="#666666" fillOpacity="0.5" />
-                    </svg>
-                    </span>
-                </div>
+const listData: string[] = ["Javascript", "CSS3", "React.JS", "Typescript", "HTML5", "TailwindCSS", "Node.JS", "Next.JS", "Python", "C++", "Java"]
+
+const TechnicalSkill = ({
+    setCurrentIndex,
+    setCurrentTab,
+    currentIndex,
+    currentTab
+}: { setCurrentIndex: Function, setCurrentTab: Function, currentIndex: number, currentTab: number }) => {
+
+  const [clickedValues, setClickedValues] = useState<any>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const queryClient = useQueryClient();
+
+  const { data } = useQueryApi('skill', apiUrls.TECHNICAL_SKILL);
+
+  const id = data?.skills[0]?._id;
+
+   // Sample list data
+
+  const handleItemClick = (value:any) => {
+    if (clickedValues.includes(value)) {
+      // If the value is already in the clickedValues array, remove it
+      setClickedValues(clickedValues.filter((v:any) => v !== value));
+    } else {
+      // If the value is not in the cckedValues array, add it
+      setClickedValues([...clickedValues, value]);
+    }
+  };
+
+  const handleClick = async () => {
+    setLoading(true);
+    const response = await createUserTask({
+      name: clickedValues
+    });
+    if (response.status === 201) {
+      toast.success(response.message);
+      setLoading(false);
+      queryClient.invalidateQueries({
+        queryKey: ["skill"],
+        exact: true
+      })
+      queryClient.invalidateQueries({
+        queryKey: ["all"],
+        exact: true
+      })
+    } else {
+      setLoading(false);
+      toast.error(response.message);
+    }
+  }
+
+  const handleUpdateClick = async() => {
+    setLoading(true);
+    const response = await updateUserSkill({
+      name: clickedValues
+    }, id)
+    if (response.status === 201) {
+      toast.success(response.message);
+      setLoading(false);
+      queryClient.invalidateQueries({
+        queryKey: ["skill"],
+        exact: true
+      })
+      queryClient.invalidateQueries({
+        queryKey: ["all"],
+        exact: true
+      })
+    } else {
+      toast.error(response.message);
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div>
+      <div className='mt-7'>
+        <div className='text-coregray text-sm font-normal'>Skill 1</div>
+        <div className='grid grid-cols-3 text-xs gap-3 mt-7'>
+          {listData.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => handleItemClick(item)}
+              className={`${clickedValues.includes(item) ? "bg-corered/30" : ""} border cursor-pointer text-center py-2 rounded-full`}>
+              {item}
             </div>
-            <button
-                    className="bg-corered hover:bg-black/5 text-sm text-white font-opensans mx-auto py-3 w-full mt-10"
-                    type="submit"
-                >
-                     Next
-                </button>
+          ))}
         </div>
-    );
+        <div>
+        </div>
+      </div>
+      {!data?.skills[0]?.name?.length ? <button
+        onClick={handleClick}
+        className="bg-corered hover:bg-black/5 text-sm text-white font-opensans mx-auto py-3 w-full mt-10"
+        type="submit"
+      >
+       {loading === true ? "Loading..." :  "Send"}
+      </button> : <button onClick={handleUpdateClick} type='submit' className='bg-corered hover:bg-black/5 text-sm text-white font-opensans mx-auto py-3 w-full mt-10'>{loading ? "Loading..." : "Update"}</button>}
+      <NextButton
+        setCurrentIndex={setCurrentIndex}
+        setCurrentTab={setCurrentTab}
+        currentIndex={currentIndex}
+        currentTab={currentTab}
+        name='Next'
+      />
+    </div>
+  );
 };
 
 export default TechnicalSkill;

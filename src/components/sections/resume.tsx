@@ -19,8 +19,8 @@ const ResumeSection = () => {
   const tabs: { tab: number; name: string, icon: any, has_data: any }[] = [
     {
       tab: 1, has_data: true, name: "Personal Information", icon: <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_351_1325)">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 8.5C6.6249 8.5 5.1 6.9751 5.1 5.1C5.1 3.2249 6.6249 1.7 8.5 1.7C10.3751 1.7 11.9 3.2249 11.9 5.1C11.9 6.9751 10.3751 8.5 8.5 8.5ZM11.6943 9.07203C12.8554 8.13788 13.6 6.7065 13.6 5.1C13.6 2.2831 11.3169 0 8.5 0C5.6831 0 3.4 2.2831 3.4 5.1C3.4 6.7065 4.1446 8.13788 5.3057 9.07203C2.19555 10.2408 0 13.1283 0 17H1.7C1.7 12.75 4.75065 10.2 8.5 10.2C12.2494 10.2 15.3 12.75 15.3 17H17C17 13.1283 14.8044 10.2408 11.6943 9.07203Z" fill="#404653" />
+        <g clipPath="url(#clip0_351_1325)">
+          <path fillRule="evenodd" clipRule="evenodd" d="M8.5 8.5C6.6249 8.5 5.1 6.9751 5.1 5.1C5.1 3.2249 6.6249 1.7 8.5 1.7C10.3751 1.7 11.9 3.2249 11.9 5.1C11.9 6.9751 10.3751 8.5 8.5 8.5ZM11.6943 9.07203C12.8554 8.13788 13.6 6.7065 13.6 5.1C13.6 2.2831 11.3169 0 8.5 0C5.6831 0 3.4 2.2831 3.4 5.1C3.4 6.7065 4.1446 8.13788 5.3057 9.07203C2.19555 10.2408 0 13.1283 0 17H1.7C1.7 12.75 4.75065 10.2 8.5 10.2C12.2494 10.2 15.3 12.75 15.3 17H17C17 13.1283 14.8044 10.2408 11.6943 9.07203Z" fill="#404653" />
         </g>
         <defs>
           <clipPath id="clip0_351_1325">
@@ -31,7 +31,7 @@ const ResumeSection = () => {
     },
     {
       tab: 2, has_data: true, name: "Experience", icon: <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5.78005 20.2031H1C1 16.1935 4.32905 12.943 8.43563 12.943C8.61419 12.943 8.79127 12.9491 8.96675 12.9612M12.6846 5.68284C12.6846 7.97408 10.7822 9.83149 8.43563 9.83149C6.08901 9.83149 4.1867 7.97408 4.1867 5.68284C4.1867 3.39159 6.08901 1.53418 8.43563 1.53418C10.7822 1.53418 12.6846 3.39159 12.6846 5.68284ZM10.1244 20.2031L12.2754 19.7831C12.463 19.7465 12.5568 19.7281 12.6442 19.6946C12.7218 19.6649 12.7956 19.6264 12.864 19.5798C12.941 19.5273 13.0086 19.4613 13.1439 19.3292L17.56 15.0173C18.1467 14.4445 18.1467 13.5158 17.56 12.943C16.9734 12.3702 16.0222 12.3702 15.4355 12.943L11.0194 17.2549C10.8842 17.387 10.8165 17.453 10.7628 17.5283C10.7151 17.595 10.6757 17.6671 10.6452 17.7429C10.6109 17.8282 10.5922 17.9198 10.5546 18.1029L10.1244 20.2031Z" stroke="#000112" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M5.78005 20.2031H1C1 16.1935 4.32905 12.943 8.43563 12.943C8.61419 12.943 8.79127 12.9491 8.96675 12.9612M12.6846 5.68284C12.6846 7.97408 10.7822 9.83149 8.43563 9.83149C6.08901 9.83149 4.1867 7.97408 4.1867 5.68284C4.1867 3.39159 6.08901 1.53418 8.43563 1.53418C10.7822 1.53418 12.6846 3.39159 12.6846 5.68284ZM10.1244 20.2031L12.2754 19.7831C12.463 19.7465 12.5568 19.7281 12.6442 19.6946C12.7218 19.6649 12.7956 19.6264 12.864 19.5798C12.941 19.5273 13.0086 19.4613 13.1439 19.3292L17.56 15.0173C18.1467 14.4445 18.1467 13.5158 17.56 12.943C16.9734 12.3702 16.0222 12.3702 15.4355 12.943L11.0194 17.2549C10.8842 17.387 10.8165 17.453 10.7628 17.5283C10.7151 17.595 10.6757 17.6671 10.6452 17.7429C10.6109 17.8282 10.5922 17.9198 10.5546 18.1029L10.1244 20.2031Z" stroke="#000112" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
       </svg>,
     },
     {
@@ -48,65 +48,66 @@ const ResumeSection = () => {
     },
     {
       tab: 5, has_data: true, name: "Certification", icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6 9.25005L7.84613 11.2501L12 6.75008M1.5 9.00008L5.25 2.50488H12.75L16.5 9.00008L12.75 15.4953H5.25L1.5 9.00008Z" stroke="#4E4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M6 9.25005L7.84613 11.2501L12 6.75008M1.5 9.00008L5.25 2.50488H12.75L16.5 9.00008L12.75 15.4953H5.25L1.5 9.00008Z" stroke="#4E4D4D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
       ,
     },
   ];
 
-  function selectTags(num1: number, num2: number) {
-    return setCurrentIndex(num1), setCurrentTab(num2)
-  };
-
+  console.log(currentIndex, currentTab)
 
   return (
     <>
       <div className="w-full relative">
-        <div className="fixed flex w-[45%] bg-primarygray overflow-auto">
-          <div className="w-[270px] bg-white h-screen overflow-auto pt-10">
+        <div className="fixed flex lg:w-[45%] w-full bg-primarygray overflow-auto">
+          <div className="lg:w-[270px] bg-white h-screen overflow-auto pt-10">
             {tabs.map((tab, index) => (
-              <button
+              <div
                 key={index}
                 onClick={() => {
                   setCurrentIndex(index);
                   setCurrentTab(tab.tab);
                 }}
-                className={`mt-5 ${currentTab === index + 1 ? "bg-corered/20 font-medium" : ""} 
-                px-10 cursor-pointer items-center gap-2 flex h-12 text-[#404653] text-sm w-full`}
+                className={`mt-5 ${currentTab === index + 1 ? "lg:bg-corered/20  font-medium" : ""} 
+                lg:px-10 pr-5 cursor-pointer items-center lg:gap-2 flex md:justify-start justify-center h-12 text-[#404653] text-sm w-[100px] lg:w-full`}
               >
-                {tab.icon}
-                {tab.name}
-              </button>
-            ))}
-              <p className="text-sm text-coregray px-10 font-poppins mt-24">Progress</p>
-            <div className="px-10 mt-1 flex items-center gap-2">
-              <div className="bg-[#D9D9D9] w-full h-3 rounded-full relative">
-                <span className={`bg-corered ${
-              (tabs[currentIndex].tab === 1 && "w-[20%]") ||
-              (tabs[currentIndex].tab === 2 && "w-[40%]") ||
-              (tabs[currentIndex].tab === 3 && "w-[60%]") ||
-              (tabs[currentIndex].tab === 4 && "w-[80%]") ||
-              (tabs[currentIndex].tab === 5 && "w-full rounded-tr-full rounded-br-full")
-            } h-3 z-50 transition-all ease-in-out duration-700 delay-500 rounded-tl-full rounded-bl-full absolute`} />
+                <div>{tab.icon}</div>
+                <div className="lg:block hidden">{tab.name}</div>
               </div>
-              <span className="text-xs text-[#666666] transition-all ease-in-out duration-1000 delay-500">
-              {
-              (tabs[currentIndex].tab === 1 && "20%") ||
-              (tabs[currentIndex].tab === 2 && "40%") ||
-              (tabs[currentIndex].tab === 3 && "60%") ||
-              (tabs[currentIndex].tab === 4 && "80%") ||
-              (tabs[currentIndex].tab === 5 && "100%")
-            }
-              </span>
-            </div>
+            ))}
           </div>
-          <div className="w-[60%] bg-primarygray px-8 h-screen overflow-auto">
+          <div className="lg:w-[60%] w-full bg-primarygray px-8 h-screen overflow-auto">
             {
-              (tabs[currentIndex].tab === 1 && <UserInfo />) ||
-              (tabs[currentIndex].tab === 2 && <UserExperience />) ||
-              (tabs[currentIndex].tab === 3 && <TechnicalSkill />) ||
-              (tabs[currentIndex].tab === 4 && <Education />) ||
-              (tabs[currentIndex].tab === 5 && <Certification />)
+              (tabs[currentIndex].tab === 1 && <UserInfo
+                setCurrentIndex={setCurrentIndex}
+                setCurrentTab={setCurrentTab}
+                currentIndex={1}
+                currentTab={1}
+              />) ||
+              (tabs[currentIndex].tab === 2 && <UserExperience
+                setCurrentIndex={setCurrentIndex}
+                setCurrentTab={setCurrentTab}
+                currentIndex={2}
+                currentTab={2}
+              />) ||
+              (tabs[currentIndex].tab === 3 && <TechnicalSkill
+               setCurrentIndex={setCurrentIndex}
+                setCurrentTab={setCurrentTab}
+                currentIndex={3}
+                currentTab={3}
+              />) ||
+              (tabs[currentIndex].tab === 4 && <Education
+                setCurrentIndex={setCurrentIndex}
+                setCurrentTab={setCurrentTab}
+                currentIndex={4}
+                currentTab={4}
+              />) ||
+              (tabs[currentIndex].tab === 5 && <Certification
+              setCurrentIndex={setCurrentIndex}
+                setCurrentTab={setCurrentTab}
+                currentIndex={5}
+                currentTab={5}
+              />)
             }
           </div>
         </div>

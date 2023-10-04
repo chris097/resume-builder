@@ -48,7 +48,7 @@ function ResetPassword() {
   return (
     <>
       <div className=" flex w-[100%] justify-between">
-        <div className=" fixed w-[50%] ">
+        <div className="fixed w-[50%] md:blcok hidden">
           <img className=" h-screen object-cover w-full" src={sideImg} alt="Logo" />
         </div>
         <div className=" w-[50%] pt-[15px] bg-white h-screen ml-[50%]">

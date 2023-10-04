@@ -1,4 +1,5 @@
 import React, { ReactNode, useState } from "react";
+import useQueryApi from "../helpers/useQuery";
 // import { boolean } from 'yup';
 // import { CONSTANT_TEXT } from "../constant";
 // import { apiUrls } from "../helpers/api/url";
@@ -7,6 +8,7 @@ import React, { ReactNode, useState } from "react";
 type NavProps = {
   showNav: boolean;
   // isLoading: boolean;
+  // data: any
   isData?: any;
   toggleOpenNav: () => void;
   toggleCloseNav: () => void;
@@ -18,8 +20,9 @@ type Props = {
 
 const defaultState = {
   showNav: false,
-  isLoading: true,
+  // isLoading: true,
   isData: {},
+  // data: [],
   toggleOpenNav: () => {},
   toggleCloseNav: () => {},
 };
@@ -34,7 +37,7 @@ export const NavProvider = ({ children }: Props) => {
   const [isData, setData] = useState<object>({});
 
   //query
-  // const { data, isLoading } = useQueryApi([CONSTANT_TEXT.GET_ABOUT], apiUrls.USER_INFO);
+  // const { data, isLoading } = useQueryApi("all_info", "user/infrormation");
 
   //functions
   const toggleOpenNav = () => {
@@ -52,6 +55,7 @@ export const NavProvider = ({ children }: Props) => {
   const values = {
     showNav,
     // isLoading,
+    // data,
     isData,
     toggleOpenNav,
     toggleCloseNav,

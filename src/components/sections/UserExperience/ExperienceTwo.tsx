@@ -67,6 +67,10 @@ const ExperienceTwo = ({ data, months, years, isLoading, setLoading, id }: IProp
                         queryKey: ["experience"],
                         exact: true
                     })
+                    queryClient.invalidateQueries({
+                        queryKey: ["all"],
+                        exact: true
+                    })
                     setLoading(false);
                     toast.success(responses.message);
                 } else {
@@ -92,7 +96,7 @@ const ExperienceTwo = ({ data, months, years, isLoading, setLoading, id }: IProp
 
     return (
         <div>
-            <p className='text-sm font-light mt-5'>#2</p>
+            <p className='text-sm font-light mt-3'>#2</p>
             <form onSubmit={formik.handleSubmit}>
                 <div className='mt-4'>
                     <Input
@@ -209,8 +213,8 @@ const ExperienceTwo = ({ data, months, years, isLoading, setLoading, id }: IProp
                     <p className='text-[10px] text-coregray'>Currently working</p>
                 </div>
                 <button
-                    className="bg-corered text-white hover:bg-black/5 text-[13px] font-opensans w-full py-2 mt-5 mb-28"
-                    type="submit">{isLoading ? "Loading" : (data?.data?.length === 1 ? "Submit" : "Update")}</button>
+                    className="bg-corered text-white hover:bg-black/5 text-[13px] font-opensans w-full py-2 mt-5"
+                    type="submit">{isLoading ? "Loading" : (data?.data?.length === 0 || data?.data?.length === 1 ? "Submit" : "Update")}</button>
             </form>
         </div>
     );
