@@ -5,6 +5,7 @@ type RouteProps = {
   VERIFY_OTP_URL: (e: string) => string;
   LOGIN_URL: string;
   REGISTER_URL: string;
+  JOBS_URL: string;
   PROFESSION_SUMMARY_URL: string;
   WORK_HISTORY_URL: string;
   EDUCATION_URL: string;
@@ -23,6 +24,7 @@ export const ROUTE_URL: RouteProps = {
   VERIFY_OTP_URL: (email) => `/verify-otp/${email}`,
   FORGOT_PASSWORD: "/forgot-password",
   RESUME_URL: "/resume",
+  JOBS_URL: "/jobs",
   COMPLETE_RESUME_URL: "/resume-complete",
   PROFESSION_SUMMARY_URL: "/resume/summary",
   WORK_HISTORY_URL: "/resume/history",
