@@ -1,6 +1,7 @@
 import React, { lazy } from "react";
 import ComposeInternalLayouts from "../components/HOC/ComposeInternalLayout";
 import { ROUTE_URL } from "./url";
+const Jobs = lazy(() => import("../pages/Jobs"));
 const Home = lazy(() => import("../pages/Home"));
 const Resume = lazy(() => import("../pages/Template"));
 const FinalResume = lazy(() => import("../pages/Template/FinalResume"));
@@ -20,6 +21,10 @@ export const publicRoutes: PublicRouteProps[] = [
     {
         path: ROUTE_URL.HOME_URL,
         element: Home
+    },
+    {
+        path: ROUTE_URL.JOBS_URL,
+        element: Jobs
     },
     {
         path: ROUTE_URL.RESUME_URL,

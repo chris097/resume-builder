@@ -16,6 +16,7 @@ import { AiFillTwitterCircle } from 'react-icons/ai';
 import { Reveal } from '../../components/utils/Reveal';
 import { FiMenu } from 'react-icons/fi';
 import { GrClose } from 'react-icons/gr';
+import Footer from '../../components/footer';
 
 const Home = () => {
   //state
@@ -35,14 +36,13 @@ const Home = () => {
   return (
     <>
       {isNav && <div className='fixed flex top-0 left-0 inset-0 bg-black/90 overflow-y-hidden justify-center items-center flex-col z-50'>
-        {/* <div className='flex w-[90%] justify-end mt-10 text-white'><GrClose className='text-white' size={26} /></div> */}
         <div className='text-white'>
-          <div className='flex flex-col justify-center items-center w-full gap-16 text-2xl font-poppins text-white'>
+          {/* <div className='flex flex-col justify-center items-center w-full gap-16 text-2xl font-poppins text-white'>
             <div className='text-corered cursor-pointer'>Home</div>
             <div className='cursor-pointer hover:text-corered'>Template</div>
             <div className='cursor-pointer hover:text-corered'>Jobs</div>
             <div className='cursor-pointer hover:text-corered'>About</div>
-          </div>
+          </div> */}
           <div className='mt-20'>
             <Link to={ROUTE_URL.LOGIN_URL}>
             <HomeButton
@@ -62,12 +62,12 @@ const Home = () => {
           <div>
             {view === 0 && <Logo width='122' height='42' />}
           </div>
-          <div className='md:flex gap-12 hidden text-md font-poppins text-simpleblack'>
+          {/* <div className='md:flex gap-12 hidden text-md font-poppins text-simpleblack'>
             <div className='text-corered cursor-pointer'>Home</div>
             <div className='cursor-pointer hover:text-corered'>Template</div>
-            <div className='cursor-pointer hover:text-corered'>Jobs</div>
+            <a href={ROUTE_URL.JOBS_URL} className='cursor-pointer hover:text-corered'>Jobs</a>
             <div className='cursor-pointer hover:text-corered'>About</div>
-          </div>
+          </div> */}
           <div className='md:block hidden'>
             <Link to={ROUTE_URL.LOGIN_URL}>
             <HomeButton
@@ -175,64 +175,7 @@ const Home = () => {
             <div className='bg-[#0073E6]/10 h-[237px] w-full absolute -bottom-7' />
         </div>
       </div>
-      <Reveal>
-         <div className='mt-56 border-t py-16'>
-        <div className='w-[90%] mx-auto'>
-          <div className='md:flex block md:justify-between'>
-            <div>
-              <Logo width='180px' height='56px' />
-              <p className='font-poppins text-lg mt-16'>Updates right to your Inbox</p>
-              <div className='flex items-center gap-4 mt-2'>
-                <Input
-            container="w-[320px]"
-            label=""
-            labelStyle="text-coregray text-base font-normal"
-            handleClick=""
-            icon=""
-            inputContainer="w-full h-[54px] flex items-center rounded-[8px] border border-[#CED4DA] px-3 mt-1"
-            inputStyle="w-full h-full focus:outline-none text-basegray text-sm"
-            input={{
-              type: "text",
-            }}
-          />
-                <button className='bg-corered text-white h-[54px] px-4 rounded-[8px]'>Subscribe</button>
-              </div>
-            </div>
-            <div>
-              <div className='flex md:justify-start justify-between md:mt-0 mt-16 gap-14'>
-              <div>
-                <p className='font-poppins text-lg font-medium'>Our story</p>
-              <p className='text-lg font-poppins text-[#404653] mt-3'>FAQ</p>
-              <p className='text-lg font-poppins text-[#404653] mt-2'>Contact</p>
-              </div>
-              <div>
-                <p className='font-poppins text-lg font-medium'>Services</p>
-              <p className='text-lg font-poppins text-[#404653] mt-3'>Build Resume</p>
-              <p className='text-lg font-poppins text-[#404653] mt-2'>Cover Letter</p>
-              <p className='text-lg font-poppins text-[#404653] mt-2'>Template</p>
-              </div>
-              <div>
-                <p className='font-poppins text-lg font-medium'>About us</p>
-              <p className='text-lg font-poppins text-[#404653] mt-3'>Developers</p>
-              <p className='text-lg font-poppins text-[#404653] mt-2'>Meet our team</p>
-              <p className='text-lg font-poppins text-[#404653] mt-2'>Join ceVBuilder</p>
-              </div>
-              </div>
-              <div className='flex justify-center md:mt-14 mt-20 gap-8 items-center'>
-                <BsFacebook color='#EB5757' size={28} />
-                <BsLinkedin color='#EB5757' size={24} />
-                <AiFillTwitterCircle color='#EB5757' size={32} />
-              </div>
-            </div>
-          </div>
-          <div className='flex justify-center gap-6 text-primaryblack md:text-lg text-sm md:mt-32 mt-20 font-medium items-center'>
-            <p>© ceVBuilder 2023</p>
-            <p>Privacy policy</p>
-            <p>Terms of use</p>
-          </div>
-        </div>
-        </div>
-       </Reveal>
+      <Footer />
       </section>
       </>
   );
