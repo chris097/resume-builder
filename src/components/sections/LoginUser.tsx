@@ -40,7 +40,7 @@ const LoginUser = () => {
         toast.error(responses.message);
         if (isLoading === false) toast.dismiss();
       };
-      if (responses.status === 400) {
+      if (responses.status === 404) {
         if (isLoading === false) toast.dismiss();
         toast.error(responses.message);
         setIsLoading(false);
