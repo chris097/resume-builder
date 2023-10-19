@@ -15,7 +15,7 @@ const Resume = () => {
 
     return (
         <>
-            {data?.percentage === "100%" ? <div className='w-full mb-5'>
+            {data?.percentage === "100" ? <div className='w-full mb-5'>
                 <About />
                 <div className='w-full flex gap-1 mt-1'>
                     <div className='bg-white w-2/3'>
